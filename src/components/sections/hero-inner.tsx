@@ -36,7 +36,7 @@ export function HeroInner({
         </h1>
 
         {description && (
-          <p className="font-body text-brand-white/85 mt-5 max-w-full text-[17px] leading-[1.45] md:max-w-[45%] md:text-sm">
+          <p className="font-body text-brand-white/85 mt-5 max-w-full text-[17px] leading-[1.45] md:max-w-[44%] md:text-sm">
             {description}
           </p>
         )}

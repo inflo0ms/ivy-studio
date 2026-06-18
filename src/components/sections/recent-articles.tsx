@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from 'next/image';
+import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
@@ -14,6 +15,7 @@ export interface ArticleItem {
 
 interface RecentArticlesProps {
   items: [ArticleItem, ArticleItem, ArticleItem];
+  title?: ReactNode;
 }
 
 function CalendarIcon() {
@@ -73,13 +75,20 @@ function ClockIcon() {
   );
 }
 
-export function RecentArticles({ items }: RecentArticlesProps) {
+export function RecentArticles({
+  items,
+  title = (
+    <>
+      Recent <em className="font-serif italic">articles</em>
+    </>
+  ),
+}: RecentArticlesProps) {
   return (
     <section className="bg-white py-16 md:py-20">
       <Container>
         <div className="mb-8 flex items-center justify-between gap-6">
           <h2 className="text-brand-black font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
-            Recent <em className="font-serif italic">articles</em>
+            {title}
           </h2>
 
           <Button
