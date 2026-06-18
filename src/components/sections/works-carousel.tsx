@@ -1,0 +1,128 @@
+'use client';
+
+import useEmblaCarousel from 'embla-carousel-react';
+import Image, { type StaticImageData } from 'next/image';
+import { useCallback } from 'react';
+
+import { Container } from '@/components/shared/container';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/cn';
+
+export interface WorkSlide {
+  title: string;
+  beforeImage: StaticImageData;
+  afterImage: StaticImageData;
+}
+
+interface WorksCarouselProps {
+  slides: [WorkSlide, WorkSlide, WorkSlide, WorkSlide, WorkSlide];
+}
+
+function ArrowIcon({ direction }: { direction: 'prev' | 'next' }) {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      aria-hidden="true"
+      className={cn(direction === 'prev' && 'rotate-180')}
+    >
+      <path
+        d="M4 9h10M10 5l4 4-4 4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function WorksCarousel({ slides }: WorksCarouselProps) {
+  const carouselSlides = [...slides, ...slides, ...slides];
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: true,
+    skipSnaps: false,
+  });
+
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+  }, [emblaApi]);
+
+  return (
+    <section className="bg-white py-16 md:py-20">
+      <Container className="mb-5">
+        <div className="flex items-end justify-between gap-6">
+          <div className="w-full text-center md:w-auto md:text-left">
+            <h2 className="text-brand-black font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
+              Our <em className="font-serif italic">works</em>
+            </h2>
+            <p className="font-body text-brand-black/70 mx-auto mt-3 max-w-[80%] text-[17px] leading-[1.5] md:mx-0 md:max-w-none md:text-sm">
+              Every pair shows a real wedding, hover to see RAW image.
+            </p>
+          </div>
+
+          <div className="hidden items-center gap-3 md:flex">
+            <button
+              type="button"
+              onClick={scrollPrev}
+              className="text-brand-black hover:border-brand-red hover:text-brand-red flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors"
+              aria-label="Previous work"
+            >
+              <ArrowIcon direction="prev" />
+            </button>
+            <button
+              type="button"
+              onClick={scrollNext}
+              className="text-brand-black hover:border-brand-red hover:text-brand-red flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors"
+              aria-label="Next work"
+            >
+              <ArrowIcon direction="next" />
+            </button>
+          </div>
+        </div>
+      </Container>
+
+      <div ref={emblaRef} className="overflow-hidden">
+        <div className="-ml-3 flex touch-pan-y">
+          {carouselSlides.map((slide, index) => (
+            <div
+              key={`${slide.title}-${index}`}
+              className="min-w-0 flex-[0_0_82vw] pl-3 sm:flex-[0_0_351px]"
+            >
+              <div className="group relative aspect-[351/454] overflow-hidden rounded-lg bg-brand-black/10">
+                <Image
+                  src={slide.beforeImage}
+                  alt={`${slide.title} before editing`}
+                  fill
+                  sizes="(min-width: 640px) 351px, 82vw"
+                  className="object-cover"
+                />
+                <Image
+                  src={slide.afterImage}
+                  alt={`${slide.title} after editing`}
+                  fill
+                  sizes="(min-width: 640px) 351px, 82vw"
+                  className="object-cover transition-opacity duration-300 group-hover:opacity-0"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Container className="mt-7 flex justify-center">
+        <Button variant="red" className="rounded-full px-6 py-3 text-sm">
+          View full portfolio
+        </Button>
+      </Container>
+    </section>
+  );
+}
