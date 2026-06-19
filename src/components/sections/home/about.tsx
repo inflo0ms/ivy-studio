@@ -1,8 +1,6 @@
 import Image, { type StaticImageData } from 'next/image';
 import type { ReactNode } from 'react';
 
-import { Container } from '@/components/shared/container';
-
 interface AboutProps {
   eyebrow?: string;
   title: ReactNode;
@@ -20,7 +18,7 @@ export function About({
 }: AboutProps) {
   return (
     <section className="md:bg-brand-red bg-[#F9F7F6]">
-      <Container className="grid grid-cols-1 gap-8 py-0 md:grid-cols-[auto_1fr_auto] md:gap-3 md:py-20">
+      <div className="grid w-full grid-cols-1 gap-8 py-0 md:grid-cols-[auto_1fr_auto] md:gap-3 md:py-20">
         {/* Left image — fixed size from design, hidden on mobile */}
         {imageLeft && (
           <Image
@@ -34,7 +32,7 @@ export function About({
         )}
 
         {/* Card */}
-        <div className="mx-auto flex w-full max-w-[calc(100vw-40px)] flex-col items-center justify-center rounded-2xl bg-[#F9F7F6] px-5 py-20 text-center md:max-w-[100vw] md:px-8 md:py-14">
+        <div className="flex w-full flex-col items-center justify-center rounded-2xl bg-[#F9F7F6] px-5 py-20 text-center md:px-8 md:py-14">
           <span className="text-brand-black/60 font-body text-xs tracking-[0.2em] uppercase">
             {eyebrow}
           </span>
@@ -59,7 +57,7 @@ export function About({
             className="h-[548px] w-full object-cover md:w-[406px]"
           />
         )}
-      </Container>
+      </div>
     </section>
   );
 }
