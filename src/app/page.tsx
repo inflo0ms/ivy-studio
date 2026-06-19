@@ -1,13 +1,13 @@
-import { About } from '@/components/sections/about';
-import { Contact } from '@/components/sections/contact';
-import { HeroHome } from '@/components/sections/hero-home';
-import { Pricing } from '@/components/sections/pricing';
-import { Process } from '@/components/sections/process';
-import { RecentArticles } from '@/components/sections/recent-articles';
-import { ReadyCta } from '@/components/sections/ready-cta';
-import { Services } from '@/components/sections/services';
-import { TestimonialsCarousel } from '@/components/sections/testimonials-carousel';
-import { WorksCarousel } from '@/components/sections/works-carousel';
+import { Contact } from '@/components/sections/common/contact';
+import { RecentArticles } from '@/components/sections/common/recent-articles';
+import { About } from '@/components/sections/home/about';
+import { HeroHome } from '@/components/sections/home/hero-home';
+import { Pricing } from '@/components/sections/home/pricing';
+import { Process } from '@/components/sections/home/process';
+import { ReadyCta } from '@/components/sections/home/ready-cta';
+import { Services } from '@/components/sections/home/services';
+import { TestimonialsCarousel } from '@/components/sections/home/testimonials-carousel';
+import { WorksCarousel } from '@/components/sections/home/works-carousel';
 import {
   homeImages,
   homeProcess,

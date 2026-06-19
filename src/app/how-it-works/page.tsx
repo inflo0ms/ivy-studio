@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
-import { HeroInner } from '@/components/sections/hero-inner';
-import { HowItWorksTimeline } from '@/components/sections/how-it-works-timeline';
+import { Contact } from '@/components/sections/common/contact';
+import { HeroInner } from '@/components/sections/common/hero-inner';
+import { HowItWorksTimeline } from '@/components/sections/how-it-works/how-it-works-timeline';
 import { howItWorksHero, howItWorksSteps } from '@/data/how-it-works';
 import { homeImages } from '@/data/home';
 import { siteContact } from '@/data/site';
-import { Contact } from '@/components/sections/contact';
 
 export const metadata: Metadata = {
   title: 'How It Works | Ivy Studio',

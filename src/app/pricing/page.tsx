@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
-import { Contact } from '@/components/sections/contact';
-import { Faq } from '@/components/sections/faq';
-import { HeroInner } from '@/components/sections/hero-inner';
-import { PricingCalculator } from '@/components/sections/pricing-calculator';
-import { PricingCards } from '@/components/sections/pricing-cards';
+import { Contact } from '@/components/sections/common/contact';
+import { Faq } from '@/components/sections/common/faq';
+import { HeroInner } from '@/components/sections/common/hero-inner';
+import { PricingCalculator } from '@/components/sections/pricing/pricing-calculator';
+import { PricingCards } from '@/components/sections/pricing/pricing-cards';
 import { homeImages } from '@/data/home';
 import {
   pricingCalculatorServices,

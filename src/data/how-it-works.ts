@@ -1,4 +1,4 @@
-import type { HowItWorksStep } from '@/components/sections/how-it-works-timeline';
+import type { HowItWorksStep } from '@/components/sections/how-it-works/how-it-works-timeline';
 
 import heroImage from '@/assets/images/get-started.png';
 import dashboardImage from '@/assets/images/home-hero.png';

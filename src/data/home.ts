@@ -1,9 +1,9 @@
-import type { PricingItem } from '@/components/sections/pricing';
-import type { ProcessItem } from '@/components/sections/process';
-import type { ArticleItem } from '@/components/sections/recent-articles';
-import type { ServiceItem } from '@/components/sections/services';
-import type { TestimonialItem } from '@/components/sections/testimonials-carousel';
-import type { WorkSlide } from '@/components/sections/works-carousel';
+import type { ArticleItem } from '@/components/sections/common/recent-articles';
+import type { PricingItem } from '@/components/sections/home/pricing';
+import type { ProcessItem } from '@/components/sections/home/process';
+import type { ServiceItem } from '@/components/sections/home/services';
+import type { TestimonialItem } from '@/components/sections/home/testimonials-carousel';
+import type { WorkSlide } from '@/components/sections/home/works-carousel';
 
 import heroHomeImage from '@/assets/images/home-hero.png';
 import aboutLeftImage from '@/assets/images/introduce1.png';

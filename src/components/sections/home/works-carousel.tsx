@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/cn';
+import { ArrowIcon } from '@/components/ui/icons';
 
 export interface WorkSlide {
   title: string;
@@ -16,27 +16,6 @@ export interface WorkSlide {
 
 interface WorksCarouselProps {
   slides: [WorkSlide, WorkSlide, WorkSlide, WorkSlide, WorkSlide];
-}
-
-function ArrowIcon({ direction }: { direction: 'prev' | 'next' }) {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      fill="none"
-      aria-hidden="true"
-      className={cn(direction === 'prev' && 'rotate-180')}
-    >
-      <path
-        d="M4 9h10M10 5l4 4-4 4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 export function WorksCarousel({ slides }: WorksCarouselProps) {

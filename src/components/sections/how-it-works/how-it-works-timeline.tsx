@@ -1,6 +1,7 @@
 import Image, { type StaticImageData } from 'next/image';
 
 import { Container } from '@/components/shared/container';
+import { ClockIcon } from '@/components/ui/icons';
 
 export interface HowItWorksStep {
   step: string;
@@ -12,28 +13,6 @@ export interface HowItWorksStep {
 
 interface HowItWorksTimelineProps {
   steps: [HowItWorksStep, HowItWorksStep, HowItWorksStep];
-}
-
-function ClockIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <circle cx="6" cy="6" r="4" stroke="currentColor" strokeWidth="1" />
-      <path
-        d="M6 3.8V6l1.5.9"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 export function HowItWorksTimeline({ steps }: HowItWorksTimelineProps) {

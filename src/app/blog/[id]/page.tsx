@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import { BlogArticle } from '@/components/sections/blog-article';
-import { RecentArticles } from '@/components/sections/recent-articles';
+import { BlogArticle } from '@/components/sections/blog/blog-article';
+import { RecentArticles } from '@/components/sections/common/recent-articles';
 import {
   blogArticles,
   blogRelatedArticles,

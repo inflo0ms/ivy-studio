@@ -1,5 +1,6 @@
 import Image, { type StaticImageData } from 'next/image';
 
+import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
 
 export interface BlogArticleSection {
@@ -39,63 +40,6 @@ interface BlogArticleProps {
   article: BlogArticleDetail;
 }
 
-function CalendarIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <rect
-        x="2"
-        y="2.5"
-        width="8"
-        height="7"
-        rx="1"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <path
-        d="M3.5 1.5v2M8.5 1.5v2M2.2 5h7.6"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <circle
-        cx="6"
-        cy="6"
-        r="4"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <path
-        d="M6 3.8V6l1.5.9"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function BlogArticle({ article }: BlogArticleProps) {
   return (
     <article className="bg-white py-14 md:py-20">
@@ -111,14 +55,11 @@ export function BlogArticle({ article }: BlogArticleProps) {
 
           <div className="font-body text-brand-black/55 mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs leading-none">
             <span>By {article.author}</span>
-            <span className="flex items-center gap-1.5">
-              <CalendarIcon />
-              {article.date}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ClockIcon />
-              {article.readTime}
-            </span>
+            <ArticleMeta
+              date={article.date}
+              readTime={article.readTime}
+              className="contents"
+            />
           </div>
         </div>
 

@@ -1,6 +1,6 @@
-import type { BlogArticleItem } from '@/components/sections/blog-articles-grid';
-import type { BlogArticleDetail } from '@/components/sections/blog-article';
-import type { BlogFeaturedArticleItem } from '@/components/sections/blog-featured-article';
+import type { BlogArticleDetail } from '@/components/sections/blog/blog-article';
+import type { BlogArticleItem } from '@/components/sections/blog/blog-articles-grid';
+import type { BlogFeaturedArticleItem } from '@/components/sections/blog/blog-featured-article';
 
 import aboutLeftImage from '@/assets/images/introduce1.png';
 import aboutRightImage from '@/assets/images/introduce2.png';

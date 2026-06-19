@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
+import { ClockIcon } from '@/components/ui/icons';
 
 export interface ProcessItem {
   step: string;
@@ -12,34 +13,6 @@ export interface ProcessItem {
 interface ProcessProps {
   title: ReactNode;
   items: [ProcessItem, ProcessItem, ProcessItem];
-}
-
-function ClockIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <circle
-        cx="7"
-        cy="7"
-        r="4.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-      <path
-        d="M7 4.5V7l1.8 1.1"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 export function Process({ title, items }: ProcessProps) {

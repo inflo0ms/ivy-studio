@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
-import { FaqAccordionGroups } from '@/components/sections/faq-accordion-groups';
-import { HeroInner } from '@/components/sections/hero-inner';
+import { Contact } from '@/components/sections/common/contact';
+import { HeroInner } from '@/components/sections/common/hero-inner';
+import { FaqAccordionGroups } from '@/components/sections/faq/faq-accordion-groups';
 import { faqGroups, faqHero } from '@/data/faq';
 import { homeImages } from '@/data/home';
 import { siteContact } from '@/data/site';
-import { Contact } from '@/components/sections/contact';
 
 export const metadata: Metadata = {
   title: 'FAQ | Ivy Studio',

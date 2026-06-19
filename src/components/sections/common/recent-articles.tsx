@@ -1,6 +1,7 @@
 import Image, { type StaticImageData } from 'next/image';
 import type { ReactNode } from 'react';
 
+import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
 
@@ -16,63 +17,6 @@ export interface ArticleItem {
 interface RecentArticlesProps {
   items: [ArticleItem, ArticleItem, ArticleItem];
   title?: ReactNode;
-}
-
-function CalendarIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <rect
-        x="2"
-        y="2.5"
-        width="8"
-        height="7"
-        rx="1"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <path
-        d="M3.5 1.5v2M8.5 1.5v2M2.2 5h7.6"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <circle
-        cx="6"
-        cy="6"
-        r="4"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <path
-        d="M6 3.8V6l1.5.9"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 export function RecentArticles({
@@ -125,16 +69,11 @@ export function RecentArticles({
                   {item.description}
                 </p>
 
-                <div className="font-body text-brand-black/55 mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] leading-none">
-                  <span className="flex items-center gap-1.5">
-                    <CalendarIcon />
-                    {item.date}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <ClockIcon />
-                    {item.readTime}
-                  </span>
-                </div>
+                <ArticleMeta
+                  date={item.date}
+                  readTime={item.readTime}
+                  className="mt-5"
+                />
               </div>
             </article>
           ))}

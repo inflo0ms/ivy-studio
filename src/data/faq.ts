@@ -1,4 +1,4 @@
-import type { FaqAccordionGroup } from '@/components/sections/faq-accordion-groups';
+import type { FaqAccordionGroup } from '@/components/sections/faq/faq-accordion-groups';
 
 import heroImage from '@/assets/images/services/colorCorrection.png';
 

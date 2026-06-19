@@ -1,7 +1,9 @@
 import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
 
+import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
+import { ArrowIcon } from '@/components/ui/icons';
 
 export interface BlogArticleItem {
   id: string;
@@ -24,84 +26,6 @@ interface BlogArticlesGridProps {
     BlogArticleItem,
     BlogArticleItem,
   ];
-}
-
-function CalendarIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <rect
-        x="2"
-        y="2.5"
-        width="8"
-        height="7"
-        rx="1"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <path
-        d="M3.5 1.5v2M8.5 1.5v2M2.2 5h7.6"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <circle
-        cx="6"
-        cy="6"
-        r="4"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <path
-        d="M6 3.8V6l1.5.9"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function PaginationArrow({ direction }: { direction: 'prev' | 'next' }) {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      fill="none"
-      aria-hidden="true"
-      className={direction === 'prev' ? 'rotate-180' : undefined}
-    >
-      <path
-        d="M4 9h10M10 5l4 4-4 4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
@@ -137,16 +61,11 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
                     {item.description}
                   </p>
 
-                  <div className="font-body text-brand-black/55 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] leading-none">
-                    <span className="flex items-center gap-1.5">
-                      <CalendarIcon />
-                      {item.date}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <ClockIcon />
-                      {item.readTime}
-                    </span>
-                  </div>
+                  <ArticleMeta
+                    date={item.date}
+                    readTime={item.readTime}
+                    className="mt-4"
+                  />
                 </div>
               </Link>
             </article>
@@ -159,7 +78,7 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
             className="text-brand-black hover:border-brand-red hover:text-brand-red flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors"
             aria-label="Previous articles page"
           >
-            <PaginationArrow direction="prev" />
+            <ArrowIcon direction="prev" />
           </button>
           <div className="flex items-center gap-2 px-2" aria-label="Page 1 of 3">
             <span className="bg-brand-red size-1.5 rounded-full" />
@@ -171,7 +90,7 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
             className="text-brand-black hover:border-brand-red hover:text-brand-red flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors"
             aria-label="Next articles page"
           >
-            <PaginationArrow direction="next" />
+            <ArrowIcon direction="next" />
           </button>
         </div>
       </Container>

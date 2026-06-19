@@ -1,6 +1,6 @@
-import type { FaqItem } from '@/components/sections/faq';
-import type { PricingCardItem } from '@/components/sections/pricing-cards';
-import type { PricingCalculatorService } from '@/components/sections/pricing-calculator';
+import type { FaqItem } from '@/components/sections/common/faq';
+import type { PricingCalculatorService } from '@/components/sections/pricing/pricing-calculator';
+import type { PricingCardItem } from '@/components/sections/pricing/pricing-cards';
 
 import heroImage from '@/assets/images/home-hero.png';
 

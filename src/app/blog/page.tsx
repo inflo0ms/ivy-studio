@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import { BlogArticlesGrid } from '@/components/sections/blog-articles-grid';
-import { BlogFeaturedArticle } from '@/components/sections/blog-featured-article';
-import { HeroInner } from '@/components/sections/hero-inner';
+import { BlogArticlesGrid } from '@/components/sections/blog/blog-articles-grid';
+import { BlogFeaturedArticle } from '@/components/sections/blog/blog-featured-article';
+import { HeroInner } from '@/components/sections/common/hero-inner';
 import { blogArticles, blogFeaturedArticle, blogHero } from '@/data/blog';
 
 export const metadata: Metadata = {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import { Figtree, Google_Sans_Flex, Playfair_Display } from 'next/font/google';
 
 import { Footer } from '@/components/shared/footer';
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html
