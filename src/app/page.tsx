@@ -48,8 +48,9 @@ export default function HomePage() {
       <Services
         title={
           <>
-            Every image is <em className="font-serif italic">hand-edited</em> by
-            our expert team
+            Every image <em className="font-sans italic">is</em>{' '}
+            <em className="font-serif italic">hand-edited</em> by our expert
+            team
           </>
         }
         items={homeServices}

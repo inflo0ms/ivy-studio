@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
+import { SectionTitle } from '@/components/shared/section-heading';
 import { ArrowIcon } from '@/components/ui/icons';
 
 export interface BlogArticleItem {
@@ -32,9 +33,9 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
   return (
     <section className="bg-white py-14 md:py-20">
       <Container>
-        <h2 className="text-brand-black font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
+        <SectionTitle>
           Recent <em className="font-serif italic">articles</em>
-        </h2>
+        </SectionTitle>
 
         <div className="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (

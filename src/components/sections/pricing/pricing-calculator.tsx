@@ -3,6 +3,10 @@
 import { useMemo, useState } from 'react';
 
 import { Container } from '@/components/shared/container';
+import {
+  SectionDescription,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 import { cn } from '@/lib/cn';
 
 export interface PricingCalculatorService {
@@ -78,12 +82,12 @@ export function PricingCalculator({ services }: PricingCalculatorProps) {
     <section className="bg-[#F9F7F6] py-16 md:py-20">
       <Container>
         <div className="text-center">
-          <h2 className="text-brand-black font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
+          <SectionTitle>
             Estimate your <em className="font-serif italic">order</em>
-          </h2>
-          <p className="font-body text-brand-black/70 mt-4 text-[17px] leading-[1.45] md:text-sm">
+          </SectionTitle>
+          <SectionDescription className="mt-4">
             Drag the sliders to get an instant quote for your next wedding.
-          </p>
+          </SectionDescription>
         </div>
 
         <div className="mt-10 bg-white px-6 py-8 shadow-[0_8px_24px_rgba(35,31,31,0.04)] md:px-10 md:py-9">

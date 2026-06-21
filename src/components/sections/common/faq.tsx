@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
+import { SectionTitle } from '@/components/shared/section-heading';
 
 export interface FaqItem {
   question: string;
@@ -16,9 +17,9 @@ export function Faq({ title, items }: FaqProps) {
   return (
     <section className="bg-white py-16 md:py-20">
       <Container>
-        <h2 className="text-brand-black text-center font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
+        <SectionTitle className="text-center">
           {title}
-        </h2>
+        </SectionTitle>
 
         <div className="mx-auto mt-10 max-w-[820px] divide-y divide-brand-black/10 md:mt-12">
           {items.map((item) => (

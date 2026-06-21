@@ -3,6 +3,11 @@ import type { ReactNode } from 'react';
 
 import { BackgroundImage } from '@/components/shared/background-image';
 import { Container } from '@/components/shared/container';
+import {
+  SectionDescription,
+  SectionEyebrow,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 
 interface HeroInnerProps {
   eyebrow?: string;
@@ -26,19 +31,26 @@ export function HeroInner({
     >
       <Container className="flex min-h-[420px] flex-col items-center justify-center pt-28 pb-16 text-center md:min-h-[480px]">
         {eyebrow && (
-          <span className="font-body text-brand-white/80 text-xs tracking-[0.18em] uppercase">
+          <SectionEyebrow tone="light" className="text-brand-white/80">
             {eyebrow}
-          </span>
+          </SectionEyebrow>
         )}
 
-        <h1 className="text-brand-white mt-5 max-w-4xl font-sans text-[28px] leading-[1.12] font-normal md:text-[48px]">
+        <SectionTitle
+          as="h1"
+          tone="light"
+          className="mt-5 max-w-4xl leading-[1.12]"
+        >
           {title}
-        </h1>
+        </SectionTitle>
 
         {description && (
-          <p className="font-body text-brand-white/85 mt-5 max-w-full text-[17px] leading-[1.45] md:max-w-[44%] md:text-sm">
+          <SectionDescription
+            tone="light"
+            className="mt-5 max-w-full text-brand-white/85 md:max-w-[44%]"
+          >
             {description}
-          </p>
+          </SectionDescription>
         )}
       </Container>
     </BackgroundImage>

@@ -5,6 +5,10 @@ import Image, { type StaticImageData } from 'next/image';
 import { useCallback } from 'react';
 
 import { Container } from '@/components/shared/container';
+import {
+  SectionDescription,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 import { ArrowIcon } from '@/components/ui/icons';
 
@@ -40,12 +44,12 @@ export function WorksCarousel({ slides }: WorksCarouselProps) {
       <Container className="mb-5">
         <div className="flex items-end justify-between gap-6">
           <div className="w-full text-center md:w-auto md:text-left">
-            <h2 className="text-brand-black font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
+            <SectionTitle className="tracking-[-0.15px]">
               Our <em className="font-serif italic">works</em>
-            </h2>
-            <p className="font-body text-brand-black/70 mx-auto mt-3 max-w-[80%] text-[17px] leading-[1.5] md:mx-0 md:max-w-none md:text-sm">
+            </SectionTitle>
+            <SectionDescription className="mx-auto mt-3 max-w-[80%] md:mx-0 md:max-w-none">
               Every pair shows a real wedding, hover to see RAW image.
-            </p>
+            </SectionDescription>
           </div>
 
           <div className="hidden items-center gap-3 md:flex">
@@ -76,7 +80,7 @@ export function WorksCarousel({ slides }: WorksCarouselProps) {
               key={`${slide.title}-${index}`}
               className="min-w-0 flex-[0_0_82vw] pl-3 sm:flex-[0_0_351px]"
             >
-              <div className="group relative aspect-[351/454] overflow-hidden rounded-lg bg-brand-black/10">
+              <div className="group bg-brand-black/10 relative aspect-[351/454] overflow-hidden rounded-lg">
                 <Image
                   src={slide.beforeImage}
                   alt={`${slide.title} before editing`}

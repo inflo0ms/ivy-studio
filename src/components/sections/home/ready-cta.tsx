@@ -3,6 +3,10 @@ import type { ReactNode } from 'react';
 
 import { BackgroundImage } from '@/components/shared/background-image';
 import { Container } from '@/components/shared/container';
+import {
+  SectionDescription,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 
 interface ReadyCtaProps {
@@ -23,17 +27,19 @@ export function ReadyCta({
       <BackgroundImage
         image={image}
         alt=""
-        className="min-h-[300px] md:min-h-[340px]"
+        className="min-h-[300px] md:min-h-[475px]"
         imageClassName="object-center"
-        overlayClassName="bg-black/45"
       >
-        <Container className="flex min-h-[300px] flex-col items-center justify-center py-16 text-center md:min-h-[340px]">
-          <h2 className="text-brand-white font-sans text-[28px] leading-[1.1] font-normal md:text-[44px]">
+        <Container className="flex min-h-[300px] flex-col items-center justify-center py-16 text-center md:min-h-[475px]">
+          <SectionTitle tone="light" className="leading-none">
             {title}
-          </h2>
-          <p className="font-body mt-4 max-w-xl text-[17px] leading-[1.45] text-white/85 md:text-sm">
+          </SectionTitle>
+          <SectionDescription
+            tone="light"
+            className="mt-4 max-w-[40%] text-center text-white/85"
+          >
             {description}
-          </p>
+          </SectionDescription>
           <Button variant="red" className="mt-8 rounded-full px-6 py-3 text-sm">
             {buttonLabel}
           </Button>

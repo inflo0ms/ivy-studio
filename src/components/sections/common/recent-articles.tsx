@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
+import { SectionTitle } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 
 export interface ArticleItem {
@@ -31,9 +32,9 @@ export function RecentArticles({
     <section className="bg-white py-16 md:py-20">
       <Container>
         <div className="mb-8 flex items-center justify-between gap-6">
-          <h2 className="text-brand-black font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
+          <SectionTitle>
             {title}
-          </h2>
+          </SectionTitle>
 
           <Button
             type="button"

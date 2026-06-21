@@ -1,4 +1,8 @@
 import { Container } from '@/components/shared/container';
+import {
+  SectionDescription,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 
 export interface PricingItem {
@@ -38,16 +42,15 @@ export function Pricing({ items }: PricingProps) {
   return (
     <section className="bg-[#F9F7F6] py-16 md:py-20">
       <Container>
-        <div className="flex flex-col gap-6 border-b border-brand-black/15 pb-8 md:flex-row md:items-start md:justify-between">
+        <div className="border-brand-black/15 flex flex-col gap-6 border-b pb-8 md:flex-row md:items-start md:justify-between">
           <div className="text-center md:text-left">
-            <h2 className="text-brand-black font-sans text-[28px] leading-[1.1] font-normal md:text-[40px]">
-              Simple, transparent{' '}
-              <em className="font-serif italic">pricing</em>
-            </h2>
-            <p className="font-body text-brand-black/70 mt-4 text-[17px] leading-[1.5] md:text-sm">
-              No hidden fees. No surprise invoices. Pay per photo - or save
-              with a wedding package.
-            </p>
+            <SectionTitle className="text-[#272727]">
+              Simple, transparent <em className="font-serif italic">pricing</em>
+            </SectionTitle>
+            <SectionDescription className="mt-4 text-[#272727]">
+              No hidden fees. No surprise invoices. Pay per photo - or save with
+              a wedding package.
+            </SectionDescription>
           </div>
 
           <Button
@@ -59,17 +62,17 @@ export function Pricing({ items }: PricingProps) {
           </Button>
         </div>
 
-        <div className="divide-y divide-brand-black/15">
+        <div className="divide-brand-black/15 divide-y">
           {items.map((item) => (
             <div
               key={item.title}
               className="grid gap-6 py-7 md:grid-cols-[1.1fr_1.55fr_0.75fr] md:items-start md:gap-10 md:py-8"
             >
               <div>
-                <h3 className="text-brand-black font-sans text-xl leading-[1.2] font-normal md:text-lg">
+                <h3 className="text-brand-black font-body mb-[15px] text-2xl leading-none font-medium tracking-normal">
                   {item.title}
                 </h3>
-                <p className="font-body text-brand-black/75 mt-3 max-w-[240px] text-sm leading-[1.35] md:text-xs">
+                <p className="text-brand-black font-body mt-3 max-w-[240px] text-[17px] leading-[1.4] font-normal tracking-normal">
                   {item.description}
                 </p>
               </div>
@@ -78,7 +81,7 @@ export function Pricing({ items }: PricingProps) {
                 {item.features.map((feature) => (
                   <li
                     key={feature}
-                    className="font-body text-brand-black/80 flex items-start gap-3 text-sm leading-[1.4] md:text-xs"
+                    className="text-brand-black font-body flex items-start gap-3 text-[17px] leading-[1.4] font-normal tracking-normal"
                   >
                     <CheckIcon />
                     <span>{feature}</span>
@@ -87,10 +90,10 @@ export function Pricing({ items }: PricingProps) {
               </ul>
 
               <div className="flex items-baseline gap-2 md:justify-end md:text-right">
-                <span className="text-brand-black font-sans text-3xl leading-none font-normal md:text-2xl">
+                <span className="text-brand-black font-sans text-[36px] leading-10 font-normal tracking-[0.37px]">
                   {item.price}
                 </span>
-                <span className="font-body text-brand-black/70 text-xs leading-none">
+                <span className="text-brand-black font-sans text-base leading-6 font-normal tracking-[-0.31px]">
                   {item.priceNote}
                 </span>
               </div>

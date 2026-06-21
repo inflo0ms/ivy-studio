@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
+import { SectionTitle } from '@/components/shared/section-heading';
 import { ClockIcon } from '@/components/ui/icons';
 
 export interface ProcessItem {
@@ -19,9 +20,9 @@ export function Process({ title, items }: ProcessProps) {
   return (
     <section className="bg-[#F9F7F6] py-16 md:py-20">
       <Container>
-        <h2 className="text-brand-black text-center font-sans text-[28px] leading-[1.1] font-normal md:text-left md:text-[40px]">
+        <SectionTitle className="text-center md:text-left">
           {title}
-        </h2>
+        </SectionTitle>
 
         <div className="mt-8 grid gap-3 md:grid-cols-3">
           {items.map((item) => (

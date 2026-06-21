@@ -27,3 +27,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+a,
+button:not(:disabled),
+[role='button'],
+label:has(input:not(:disabled)) {
+  cursor: pointer;
+}

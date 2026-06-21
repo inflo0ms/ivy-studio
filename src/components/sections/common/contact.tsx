@@ -3,6 +3,10 @@ import type { ReactNode } from 'react';
 
 import { BackgroundImage } from '@/components/shared/background-image';
 import { Container } from '@/components/shared/container';
+import {
+  SectionDescription,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 
 export interface ContactInfo {
@@ -34,12 +38,15 @@ export function Contact({ image, title, description, contact }: ContactProps) {
         <Container className="grid min-h-[620px] gap-10 py-16 md:grid-cols-[1fr_0.9fr] md:py-20">
           <div className="contents text-center text-white md:flex md:h-full md:max-w-[520px] md:flex-col md:justify-between md:text-left">
             <div className="order-1 md:order-none">
-              <h2 className="font-sans text-[28px] leading-[1.05] font-normal md:text-[48px]">
+              <SectionTitle tone="light" className="leading-[1.05]">
                 {title}
-              </h2>
-              <p className="font-body mx-auto mt-7 max-w-md text-[17px] leading-[1.45] text-white/85 md:mx-0 md:text-sm">
+              </SectionTitle>
+              <SectionDescription
+                tone="light"
+                className="mx-auto mt-7 max-w-md text-white/85 md:mx-0"
+              >
                 {description}
-              </p>
+              </SectionDescription>
             </div>
 
             <div className="order-3 md:order-none md:mt-0">

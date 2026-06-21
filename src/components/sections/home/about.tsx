@@ -1,6 +1,12 @@
 import Image, { type StaticImageData } from 'next/image';
 import type { ReactNode } from 'react';
 
+import {
+  SectionDescription,
+  SectionEyebrow,
+  SectionTitle,
+} from '@/components/shared/section-heading';
+
 interface AboutProps {
   eyebrow?: string;
   title: ReactNode;
@@ -27,23 +33,23 @@ export function About({
             width={406}
             height={548}
             sizes="406px"
-            className="hidden h-[548px] w-[406px] object-cover md:block"
+            className="hidden h-[548px] w-[406px] rounded-[5px] object-cover md:block"
           />
         )}
 
         {/* Card */}
-        <div className="flex w-full flex-col items-center justify-center rounded-2xl bg-[#F9F7F6] px-5 py-20 text-center md:px-8 md:py-14">
-          <span className="text-brand-black/60 font-body text-xs tracking-[0.2em] uppercase">
+        <div className="flex w-full flex-col items-center justify-center rounded-[5px] bg-[#F9F7F6] px-5 py-20 text-center md:px-8 md:py-14">
+          <SectionEyebrow>
             {eyebrow}
-          </span>
+          </SectionEyebrow>
 
-          <h2 className="text-brand-black mt-4 font-sans text-[28px] leading-[1.2] font-normal md:text-4xl">
+          <SectionTitle className="font-body mt-4 leading-[1.2] tracking-normal">
             {title}
-          </h2>
+          </SectionTitle>
 
-          <p className="text-brand-black/70 font-body mx-auto mt-5 max-w-md text-[17px] leading-[1.5] md:text-[15px]">
+          <SectionDescription className="mx-auto mt-5 max-w-md">
             {description}
-          </p>
+          </SectionDescription>
         </div>
 
         {/* Right image — fixed size from design */}
@@ -54,7 +60,7 @@ export function About({
             width={406}
             height={548}
             sizes="(min-width: 768px) 406px, 100vw"
-            className="h-[548px] w-full object-cover md:w-[406px]"
+            className="h-[548px] w-full rounded-[5px] object-cover md:w-[406px]"
           />
         )}
       </div>

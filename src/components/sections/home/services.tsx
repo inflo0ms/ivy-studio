@@ -2,6 +2,7 @@ import Image, { type StaticImageData } from 'next/image';
 import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
+import { SectionEyebrow, SectionTitle } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 
 export interface ServiceItem {
@@ -46,16 +47,16 @@ interface ServiceRowProps {
 function ServiceRow({ item, reverse }: ServiceRowProps) {
   return (
     <div
-      className={`flex flex-col-reverse md:grid md:grid-cols-2 md:items-stretch ${reverse ? 'md:[&>*:first-child]:order-2' : ''}`}
+      className={`flex flex-col-reverse overflow-hidden rounded-lg border border-[#EBE7E5] md:grid md:grid-cols-2 md:items-stretch ${reverse ? 'md:[&>*:first-child]:order-2' : ''}`}
     >
       {/* Text card */}
       <div className="bg-white px-5 py-16 md:px-[72px] md:pt-[72px] md:pb-[84px]">
         <div>
-          <h3 className="text-brand-black font-sans text-2xl leading-[1.2] font-normal sm:text-3xl">
+          <h3 className="text-brand-black font-sans text-[32px] leading-8 font-medium tracking-[0.07px]">
             {item.title}
           </h3>
 
-          <p className="font-body text-brand-black/70 mt-4 mb-[57px] max-w-[68%] text-[15px] leading-[1.5]">
+          <p className="text-brand-black font-body mt-4 mb-[57px] max-w-[68%] text-[17px] leading-[1.4] font-normal tracking-normal">
             {item.description}
           </p>
         </div>
@@ -64,14 +65,17 @@ function ServiceRow({ item, reverse }: ServiceRowProps) {
           {item.features.map((feature) => (
             <li key={feature} className="flex items-start gap-2">
               <CheckIcon />
-              <span className="font-body text-brand-black/80 text-[14px] leading-[1.5]">
+              <span className="text-brand-black font-body text-[17px] leading-[1.4] font-normal tracking-normal">
                 {feature}
               </span>
             </li>
           ))}
         </ul>
 
-        <Button variant="soft" className="rounded-full px-6 py-2.5 text-sm">
+        <Button
+          variant="soft"
+          className="text-brand-red h-10 w-28 gap-2.5 rounded-[48px] border border-[#3D030B33] bg-white px-6 py-2 [font-family:Inter,var(--font-figtree),sans-serif] text-base leading-6 font-medium tracking-[-0.31px] hover:border-[#3D030B33] hover:bg-white"
+        >
           Samples
         </Button>
       </div>
@@ -93,7 +97,7 @@ function ServiceRow({ item, reverse }: ServiceRowProps) {
 }
 
 export function Services({
-  eyebrow = 'Services',
+  eyebrow = 'our services',
   title,
   items,
 }: ServicesProps) {
@@ -101,12 +105,12 @@ export function Services({
     <section className="bg-[#F9F7F6] py-20">
       {/* Section header */}
       <Container className="mb-16 text-center">
-        <span className="font-body text-brand-black/50 text-xs tracking-[0.2em] uppercase">
+        <SectionEyebrow>
           {eyebrow}
-        </span>
-        <h2 className="text-brand-black m-auto mt-4 max-w-3xl font-sans text-[28px] leading-[1.2] font-normal md:text-5xl">
+        </SectionEyebrow>
+        <SectionTitle className="m-auto mt-4 max-w-[45%] leading-[1.2] tracking-normal">
           {title}
-        </h2>
+        </SectionTitle>
       </Container>
 
       {/* Rows */}
