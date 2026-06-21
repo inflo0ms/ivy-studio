@@ -1,9 +1,11 @@
-import type { ArticleItem } from '@/components/sections/common/recent-articles';
-import type { PricingItem } from '@/components/sections/home/pricing';
-import type { ProcessItem } from '@/components/sections/home/process';
-import type { ServiceItem } from '@/components/sections/home/services';
-import type { TestimonialItem } from '@/components/sections/home/testimonials-carousel';
-import type { WorkSlide } from '@/components/sections/home/works-carousel';
+import type {
+  ArticleSummary,
+  PricingItem,
+  ProcessStep,
+  ServiceItem,
+  TestimonialItem,
+  WorkSlide,
+} from '@/types/content';
 
 import heroHomeImage from '@/assets/images/home-hero.png';
 import aboutLeftImage from '@/assets/images/introduce1.png';
@@ -11,7 +13,16 @@ import aboutRightImage from '@/assets/images/introduce2.png';
 import service1Image from '@/assets/images/services/colorCorrection.png';
 import service2Image from '@/assets/images/services/culling.png';
 import service3Image from '@/assets/images/services/retouching.png';
-import readyCtaImage from '@/assets/images/get-started.png';
+import readyCtaImage from '@/assets/images/form.png';
+
+import OurWorkImage from '@/assets/images/our-works/our-work1.jpg';
+import OurWorkImage2 from '@/assets/images/our-works/our-work2.png';
+import OurWorkImage3 from '@/assets/images/our-works/our-work3.jpg';
+import OurWorkImage4 from '@/assets/images/our-works/our-work4.png';
+
+import ArticleImage1 from '@/assets/images/articles/article1.png';
+import ArticleImage2 from '@/assets/images/articles/article2.png';
+import ArticleImage3 from '@/assets/images/articles/article3.jpg';
 
 export const homeImages = {
   hero: heroHomeImage,
@@ -54,35 +65,35 @@ export const homeServices = [
       'Exposure & color balance',
     ],
   },
-] satisfies [ServiceItem, ServiceItem, ServiceItem];
+] satisfies ServiceItem[];
 
 export const homeWorks = [
   {
     title: 'Lake Como wedding',
     beforeImage: aboutLeftImage,
-    afterImage: service1Image,
+    afterImage: OurWorkImage,
   },
   {
     title: 'Garden portrait',
     beforeImage: heroHomeImage,
-    afterImage: aboutRightImage,
+    afterImage: OurWorkImage2,
   },
   {
     title: 'City ceremony',
     beforeImage: service2Image,
-    afterImage: service3Image,
+    afterImage: OurWorkImage3,
   },
   {
     title: 'Editorial details',
     beforeImage: aboutRightImage,
-    afterImage: heroHomeImage,
+    afterImage: OurWorkImage4,
   },
   {
     title: 'Reception story',
     beforeImage: service3Image,
-    afterImage: aboutLeftImage,
+    afterImage: OurWorkImage,
   },
-] satisfies [WorkSlide, WorkSlide, WorkSlide, WorkSlide, WorkSlide];
+] satisfies WorkSlide[];
 
 export const pricingItems = [
   {
@@ -118,7 +129,7 @@ export const pricingItems = [
     price: '$2 - $5',
     priceNote: 'per photo',
   },
-] satisfies [PricingItem, PricingItem, PricingItem];
+] satisfies PricingItem[];
 
 export const homeTestimonials = [
   {
@@ -156,13 +167,7 @@ export const homeTestimonials = [
     author: 'Mia Carter',
     role: 'Portrait photographer, Toronto',
   },
-] satisfies [
-  TestimonialItem,
-  TestimonialItem,
-  TestimonialItem,
-  TestimonialItem,
-  TestimonialItem,
-];
+] satisfies TestimonialItem[];
 
 export const homeProcess = [
   {
@@ -186,12 +191,12 @@ export const homeProcess = [
       'Once approved, upload the full wedding. We edit to the test standard and return in 3-5 days. Two rounds of revisions included.',
     duration: '3-5 business days',
   },
-] satisfies [ProcessItem, ProcessItem, ProcessItem];
+] satisfies ProcessStep[];
 
 export const recentArticles = [
   {
     id: 'editing-authenticity-1',
-    image: aboutRightImage,
+    image: ArticleImage1,
     title: 'Preserving Emotion: The Balance Between Editing and Authenticity',
     description:
       'Learn how to enhance skin tones while maintaining the authentic beauty and emotion of your wedding day portraits.',
@@ -200,7 +205,7 @@ export const recentArticles = [
   },
   {
     id: 'editing-authenticity-2',
-    image: heroHomeImage,
+    image: ArticleImage2,
     title: 'Preserving Emotion: The Balance Between Editing and Authenticity',
     description:
       'Learn how to enhance skin tones while maintaining the authentic beauty and emotion of your wedding day portraits.',
@@ -209,14 +214,14 @@ export const recentArticles = [
   },
   {
     id: 'editing-authenticity-3',
-    image: service1Image,
+    image: ArticleImage3,
     title: 'Preserving Emotion: The Balance Between Editing and Authenticity',
     description:
       'Learn how to enhance skin tones while maintaining the authentic beauty and emotion of your wedding day portraits.',
     date: 'March 8, 2026',
     readTime: '5 min read',
   },
-] satisfies [ArticleItem, ArticleItem, ArticleItem];
+] satisfies ArticleSummary[];
 
 export const readyCta = {
   description:

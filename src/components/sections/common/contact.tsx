@@ -33,7 +33,6 @@ export function Contact({ image, title, description, contact }: ContactProps) {
         alt=""
         className="min-h-[620px]"
         imageClassName="object-center"
-        overlayClassName="bg-black/55"
       >
         <Container className="grid min-h-[620px] gap-10 py-16 md:grid-cols-[1fr_0.9fr] md:py-20">
           <div className="contents text-center text-white md:flex md:h-full md:max-w-[520px] md:flex-col md:justify-between md:text-left">

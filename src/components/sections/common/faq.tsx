@@ -2,15 +2,11 @@ import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
 import { SectionTitle } from '@/components/shared/section-heading';
-
-export interface FaqItem {
-  question: string;
-  answer: string;
-}
+import type { FaqItem } from '@/types/content';
 
 interface FaqProps {
   title: ReactNode;
-  items: [FaqItem, FaqItem, FaqItem, FaqItem];
+  items: FaqItem[];
 }
 
 export function Faq({ title, items }: FaqProps) {

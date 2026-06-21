@@ -1,28 +1,16 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useCallback } from 'react';
 
 import { Container } from '@/components/shared/container';
 import { SectionEyebrow, SectionTitle } from '@/components/shared/section-heading';
 import { ArrowIcon } from '@/components/ui/icons';
-
-export interface TestimonialItem {
-  quote: string;
-  author: string;
-  role: string;
-  avatar: StaticImageData;
-}
+import type { TestimonialItem } from '@/types/content';
 
 interface TestimonialsCarouselProps {
-  items: [
-    TestimonialItem,
-    TestimonialItem,
-    TestimonialItem,
-    TestimonialItem,
-    TestimonialItem,
-  ];
+  items: TestimonialItem[];
 }
 
 export function TestimonialsCarousel({ items }: TestimonialsCarouselProps) {
@@ -84,7 +72,7 @@ export function TestimonialsCarousel({ items }: TestimonialsCarouselProps) {
               key={`${item.author}-${index}`}
               className="min-w-0 flex-[0_0_86vw] pl-2.5 md:flex-[0_0_600px]"
             >
-              <article className="flex min-h-[288px] flex-col items-center justify-start rounded-lg border border-[#EBE7E5] bg-[#F9F7F6] px-8 py-10 text-center md:h-[397px] md:p-[58px]">
+              <article className="border-brand-border bg-brand-cream flex min-h-[288px] flex-col items-center justify-start rounded-lg border px-8 py-10 text-center md:h-[397px] md:p-[58px]">
                 <div className="bg-brand-black/10 relative size-16 overflow-hidden rounded-full md:size-[100px]">
                   <Image
                     src={item.avatar}

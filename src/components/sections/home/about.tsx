@@ -23,7 +23,7 @@ export function About({
   imageRight,
 }: AboutProps) {
   return (
-    <section className="md:bg-brand-red bg-[#F9F7F6]">
+    <section className="bg-brand-cream md:bg-brand-red">
       <div className="grid w-full grid-cols-1 gap-8 py-0 md:grid-cols-[auto_1fr_auto] md:gap-3 md:py-20">
         {/* Left image — fixed size from design, hidden on mobile */}
         {imageLeft && (
@@ -38,7 +38,7 @@ export function About({
         )}
 
         {/* Card */}
-        <div className="flex w-full flex-col items-center justify-center rounded-[5px] bg-[#F9F7F6] px-5 py-20 text-center md:px-8 md:py-14">
+        <div className="bg-brand-cream flex w-full flex-col items-center justify-center rounded-[5px] px-5 py-20 text-center md:px-8 md:py-14">
           <SectionEyebrow>
             {eyebrow}
           </SectionEyebrow>

@@ -1,8 +1,10 @@
-import type { FaqItem } from '@/components/sections/common/faq';
-import type { PricingCalculatorService } from '@/components/sections/pricing/pricing-calculator';
-import type { PricingCardItem } from '@/components/sections/pricing/pricing-cards';
+import type {
+  FaqItem,
+  PricingCalculatorService,
+  PricingItem,
+} from '@/types/content';
 
-import heroImage from '@/assets/images/home-hero.png';
+import heroImage from '@/assets/images/pricing.png';
 
 export const pricingHero = {
   image: heroImage,
@@ -51,7 +53,7 @@ export const pricingCards = [
       'Delivered in 3-5 business days',
     ],
   },
-] satisfies [PricingCardItem, PricingCardItem, PricingCardItem];
+] satisfies PricingItem[];
 
 export const pricingCalculatorServices = [
   {
@@ -72,11 +74,7 @@ export const pricingCalculatorServices = [
     rate: 3.5,
     unit: 'photo',
   },
-] satisfies [
-  PricingCalculatorService,
-  PricingCalculatorService,
-  PricingCalculatorService,
-];
+] satisfies PricingCalculatorService[];
 
 export const pricingFaqItems = [
   {
@@ -99,4 +97,4 @@ export const pricingFaqItems = [
     answer:
       'Absolutely. Whether you shoot light & airy, dark & moody, film, or editorial, we will match your aesthetic. Just provide reference photos or presets during the color test phase.',
   },
-] satisfies [FaqItem, FaqItem, FaqItem, FaqItem];
+] satisfies FaqItem[];

@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
+import flowerLogo from '@/assets/icons/logo/flowerLogo.svg';
 import { Container } from '@/components/shared/container';
 import { footerNavItems, siteContact } from '@/data/site';
 
@@ -7,36 +9,10 @@ function IvyLogo() {
   return (
     <Link
       href="/"
-      className="inline-flex flex-col items-center gap-3 md:items-start"
+      className="inline-flex"
+      aria-label="Ivy Studio home"
     >
-      <svg
-        width="58"
-        height="58"
-        viewBox="0 0 58 58"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M28.7 6c7.8 8.3 7.8 16.6 0 24.9C20.9 22.6 20.9 14.3 28.7 6Z"
-          fill="currentColor"
-        />
-        <path
-          d="M9 29.3c8.3-7.8 16.6-7.8 24.9 0C25.6 37.1 17.3 37.1 9 29.3Z"
-          fill="currentColor"
-        />
-        <path
-          d="M48.4 29.3c-8.3 7.8-16.6 7.8-24.9 0C31.8 21.5 40.1 21.5 48.4 29.3Z"
-          fill="currentColor"
-        />
-        <path
-          d="M28.7 52.6c-7.8-8.3-7.8-16.6 0-24.9C36.5 36 36.5 44.3 28.7 52.6Z"
-          fill="currentColor"
-        />
-        <circle cx="28.7" cy="29.3" r="4.7" fill="#5E000C" />
-      </svg>
-      <span className="font-sans text-xl leading-none tracking-[0.08em]">
-        IVY...
-      </span>
+      <Image src={flowerLogo} alt="" width={76} height={132} />
     </Link>
   );
 }

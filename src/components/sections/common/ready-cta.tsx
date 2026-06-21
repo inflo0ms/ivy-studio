@@ -36,7 +36,7 @@ export function ReadyCta({
           </SectionTitle>
           <SectionDescription
             tone="light"
-            className="mt-4 max-w-[40%] text-center text-white/85"
+            className="mt-4 max-w-full text-center text-white/85 md:max-w-[40%]"
           >
             {description}
           </SectionDescription>

@@ -1,40 +1,8 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
-
-export interface BlogArticleSection {
-  title: string;
-  paragraphs: string[];
-}
-
-export interface BlogWorkflowStep {
-  title: string;
-  description: string;
-}
-
-export interface BlogArticleDetail {
-  id: string;
-  title: string;
-  description: string;
-  image: StaticImageData;
-  date: string;
-  readTime: string;
-  author: string;
-  intro: string[];
-  sections: [BlogArticleSection, BlogArticleSection, BlogArticleSection];
-  quote: {
-    text: string;
-    author: string;
-  };
-  gallery: [StaticImageData, StaticImageData];
-  workflow: [BlogWorkflowStep, BlogWorkflowStep, BlogWorkflowStep];
-  proTip: string;
-  mistakes: string[];
-  restraint: string[];
-  conclusion: string[];
-  authorNote: string;
-}
+import type { BlogArticleDetail } from '@/types/content';
 
 interface BlogArticleProps {
   article: BlogArticleDetail;
@@ -92,7 +60,7 @@ export function BlogArticle({ article }: BlogArticleProps) {
               </div>
 
               {index === 0 && (
-                <blockquote className="border-brand-red bg-[#F9F7F6] mt-7 border-l-2 px-6 py-5">
+                <blockquote className="border-brand-red bg-brand-cream mt-7 border-l-2 px-6 py-5">
                   <p className="font-body text-brand-black text-sm leading-[1.55]">
                     &ldquo;{article.quote.text}&rdquo;
                   </p>
@@ -140,7 +108,7 @@ export function BlogArticle({ article }: BlogArticleProps) {
               ))}
             </div>
 
-            <div className="border-brand-red bg-[#F9F7F6] mt-7 border-l-2 px-6 py-5">
+            <div className="border-brand-red bg-brand-cream mt-7 border-l-2 px-6 py-5">
               <p className="font-body text-brand-black text-sm leading-[1.55]">
                 Pro Tip: {article.proTip}
               </p>

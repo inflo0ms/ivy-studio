@@ -1,18 +1,11 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 import { Container } from '@/components/shared/container';
 import { ClockIcon } from '@/components/ui/icons';
-
-export interface HowItWorksStep {
-  step: string;
-  title: string;
-  description: string;
-  duration: string;
-  image?: StaticImageData;
-}
+import type { ProcessStep } from '@/types/content';
 
 interface HowItWorksTimelineProps {
-  steps: [HowItWorksStep, HowItWorksStep, HowItWorksStep];
+  steps: ProcessStep[];
 }
 
 export function HowItWorksTimeline({ steps }: HowItWorksTimelineProps) {

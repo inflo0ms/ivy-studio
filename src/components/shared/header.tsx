@@ -1,8 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
+import logo from '@/assets/icons/logo/Logo.svg';
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
 import { primaryNavItems } from '@/data/site';
@@ -16,10 +18,11 @@ export function Header() {
       <Container className="flex items-center justify-between py-5">
         <Link
           href="/"
-          className="text-brand-white text-2xl font-semibold tracking-wide"
+          className="inline-flex"
           onClick={() => setIsOpen(false)}
+          aria-label="Ivy Studio home"
         >
-          IVY.
+          <Image src={logo} alt="" width={131} height={32} priority />
         </Link>
 
         {/* Desktop */}

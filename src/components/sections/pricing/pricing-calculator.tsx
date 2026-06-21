@@ -8,20 +8,10 @@ import {
   SectionTitle,
 } from '@/components/shared/section-heading';
 import { cn } from '@/lib/cn';
-
-export interface PricingCalculatorService {
-  id: string;
-  label: string;
-  rate: number;
-  unit: 'photo' | 'hundred';
-}
+import type { PricingCalculatorService } from '@/types/content';
 
 interface PricingCalculatorProps {
-  services: [
-    PricingCalculatorService,
-    PricingCalculatorService,
-    PricingCalculatorService,
-  ];
+  services: PricingCalculatorService[];
 }
 
 const MIN_PHOTOS = 100;
@@ -79,7 +69,7 @@ export function PricingCalculator({ services }: PricingCalculatorProps) {
   }
 
   return (
-    <section className="bg-[#F9F7F6] py-16 md:py-20">
+    <section className="bg-brand-cream py-16 md:py-20">
       <Container>
         <div className="text-center">
           <SectionTitle>

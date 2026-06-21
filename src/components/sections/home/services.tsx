@@ -1,21 +1,15 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
 import { SectionEyebrow, SectionTitle } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
-
-export interface ServiceItem {
-  title: string;
-  description: string;
-  features: string[];
-  image?: StaticImageData;
-}
+import type { ServiceItem } from '@/types/content';
 
 interface ServicesProps {
   eyebrow?: string;
   title: ReactNode;
-  items: [ServiceItem, ServiceItem, ServiceItem];
+  items: ServiceItem[];
 }
 
 function CheckIcon() {
@@ -47,7 +41,7 @@ interface ServiceRowProps {
 function ServiceRow({ item, reverse }: ServiceRowProps) {
   return (
     <div
-      className={`flex flex-col-reverse overflow-hidden rounded-lg border border-[#EBE7E5] md:grid md:grid-cols-2 md:items-stretch ${reverse ? 'md:[&>*:first-child]:order-2' : ''}`}
+      className={`border-brand-border flex flex-col-reverse overflow-hidden rounded-lg border md:grid md:grid-cols-2 md:items-stretch ${reverse ? 'md:[&>*:first-child]:order-2' : ''}`}
     >
       {/* Text card */}
       <div className="bg-white px-5 py-16 md:px-[72px] md:pt-[72px] md:pb-[84px]">
@@ -102,7 +96,7 @@ export function Services({
   items,
 }: ServicesProps) {
   return (
-    <section className="bg-[#F9F7F6] py-20">
+    <section className="bg-brand-cream py-20">
       {/* Section header */}
       <Container className="mb-16 text-center">
         <SectionEyebrow>
@@ -115,9 +109,9 @@ export function Services({
 
       {/* Rows */}
       <Container className="flex flex-col gap-8">
-        <ServiceRow item={items[0]} />
-        <ServiceRow item={items[1]} reverse />
-        <ServiceRow item={items[2]} />
+        {items.map((item, index) => (
+          <ServiceRow key={item.title} item={item} reverse={index % 2 === 1} />
+        ))}
       </Container>
     </section>
   );

@@ -1,32 +1,14 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
 import { SectionTitle } from '@/components/shared/section-heading';
 import { ArrowIcon } from '@/components/ui/icons';
-
-export interface BlogArticleItem {
-  id: string;
-  image: StaticImageData;
-  title: string;
-  description: string;
-  date: string;
-  readTime: string;
-}
+import type { ArticleSummary } from '@/types/content';
 
 interface BlogArticlesGridProps {
-  items: [
-    BlogArticleItem,
-    BlogArticleItem,
-    BlogArticleItem,
-    BlogArticleItem,
-    BlogArticleItem,
-    BlogArticleItem,
-    BlogArticleItem,
-    BlogArticleItem,
-    BlogArticleItem,
-  ];
+  items: ArticleSummary[];
 }
 
 export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {

@@ -1,6 +1,6 @@
-import type { FaqAccordionGroup } from '@/components/sections/faq/faq-accordion-groups';
+import type { FaqGroup } from '@/types/content';
 
-import heroImage from '@/assets/images/services/colorCorrection.png';
+import heroImage from '@/assets/images/faq.jpg';
 
 export const faqHero = {
   image: heroImage,
@@ -130,11 +130,4 @@ export const faqGroups = [
       },
     ],
   },
-] satisfies [
-  FaqAccordionGroup,
-  FaqAccordionGroup,
-  FaqAccordionGroup,
-  FaqAccordionGroup,
-  FaqAccordionGroup,
-  FaqAccordionGroup,
-];
+] satisfies FaqGroup[];

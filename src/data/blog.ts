@@ -1,13 +1,11 @@
-import type { BlogArticleDetail } from '@/components/sections/blog/blog-article';
-import type { BlogArticleItem } from '@/components/sections/blog/blog-articles-grid';
-import type { BlogFeaturedArticleItem } from '@/components/sections/blog/blog-featured-article';
+import type { ArticleSummary, BlogArticleDetail } from '@/types/content';
 
 import aboutLeftImage from '@/assets/images/introduce1.png';
 import aboutRightImage from '@/assets/images/introduce2.png';
-import heroImage from '@/assets/images/home-hero.png';
+import heroImage from '@/assets/images/our-insights/our-insights.png';
 import colorCorrectionImage from '@/assets/images/services/colorCorrection.png';
 import cullingImage from '@/assets/images/services/culling.png';
-import featuredImage from '@/assets/images/services/retouching.png';
+import featuredImage from '@/assets/images/our-insights/blog-image.png';
 
 export const blogHero = {
   image: heroImage,
@@ -24,7 +22,7 @@ export const blogFeaturedArticle = {
     'Learn how to enhance skin tones while maintaining the authentic beauty and emotion of your wedding day portraits.',
   date: 'March 15, 2026',
   readTime: '6 min read',
-} satisfies BlogFeaturedArticleItem;
+} satisfies ArticleSummary;
 
 export const blogArticles = [
   {
@@ -108,23 +106,13 @@ export const blogArticles = [
     date: 'March 8, 2026',
     readTime: '5 min read',
   },
-] satisfies [
-  BlogArticleItem,
-  BlogArticleItem,
-  BlogArticleItem,
-  BlogArticleItem,
-  BlogArticleItem,
-  BlogArticleItem,
-  BlogArticleItem,
-  BlogArticleItem,
-  BlogArticleItem,
-];
+] satisfies ArticleSummary[];
 
 export const blogRelatedArticles = [
   blogArticles[1],
   blogArticles[2],
   blogArticles[3],
-] satisfies [BlogArticleItem, BlogArticleItem, BlogArticleItem];
+] satisfies ArticleSummary[];
 
 export const blogArticleDetails = [
   {
@@ -204,7 +192,7 @@ export const blogArticleDetails = [
     authorNote:
       'IVY has 10+ years of experience and 500+ weddings edited. Our team specializes in bringing out the natural beauty in every photograph.',
   },
-] satisfies [BlogArticleDetail];
+] satisfies BlogArticleDetail[];
 
 export function getBlogArticleById(id: string) {
   const detailArticle = blogArticleDetails.find((article) => article.id === id);

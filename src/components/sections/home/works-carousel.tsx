@@ -1,7 +1,7 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useCallback } from 'react';
 
 import { Container } from '@/components/shared/container';
@@ -11,15 +11,10 @@ import {
 } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 import { ArrowIcon } from '@/components/ui/icons';
-
-export interface WorkSlide {
-  title: string;
-  beforeImage: StaticImageData;
-  afterImage: StaticImageData;
-}
+import type { WorkSlide } from '@/types/content';
 
 interface WorksCarouselProps {
-  slides: [WorkSlide, WorkSlide, WorkSlide, WorkSlide, WorkSlide];
+  slides: WorkSlide[];
 }
 
 export function WorksCarousel({ slides }: WorksCarouselProps) {

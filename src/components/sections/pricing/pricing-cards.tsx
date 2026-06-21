@@ -1,18 +1,10 @@
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/cn';
-
-export interface PricingCardItem {
-  title: string;
-  description: string;
-  price: string;
-  priceNote: string;
-  features: string[];
-  badge?: string;
-}
+import type { PricingItem } from '@/types/content';
 
 interface PricingCardsProps {
-  items: [PricingCardItem, PricingCardItem, PricingCardItem];
+  items: PricingItem[];
 }
 
 function CheckIcon() {
@@ -38,7 +30,7 @@ function CheckIcon() {
 
 export function PricingCards({ items }: PricingCardsProps) {
   return (
-    <section className="bg-[#F9F7F6] py-16 md:py-24">
+    <section className="bg-brand-cream py-16 md:py-24">
       <Container>
         <div className="grid gap-5 md:grid-cols-3 md:items-stretch">
           {items.map((item) => (

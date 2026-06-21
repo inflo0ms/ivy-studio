@@ -4,17 +4,10 @@ import {
   SectionTitle,
 } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
-
-export interface PricingItem {
-  title: string;
-  description: string;
-  features: string[];
-  price: string;
-  priceNote: string;
-}
+import type { PricingItem } from '@/types/content';
 
 interface PricingProps {
-  items: [PricingItem, PricingItem, PricingItem];
+  items: PricingItem[];
 }
 
 function CheckIcon() {
@@ -40,14 +33,14 @@ function CheckIcon() {
 
 export function Pricing({ items }: PricingProps) {
   return (
-    <section className="bg-[#F9F7F6] py-16 md:py-20">
+    <section className="bg-brand-cream py-16 md:py-20">
       <Container>
         <div className="border-brand-black/15 flex flex-col gap-6 border-b pb-8 md:flex-row md:items-start md:justify-between">
           <div className="text-center md:text-left">
-            <SectionTitle className="text-[#272727]">
+            <SectionTitle className="text-brand-charcoal">
               Simple, transparent <em className="font-serif italic">pricing</em>
             </SectionTitle>
-            <SectionDescription className="mt-4 text-[#272727]">
+            <SectionDescription className="text-brand-charcoal mt-4">
               No hidden fees. No surprise invoices. Pay per photo - or save with
               a wedding package.
             </SectionDescription>

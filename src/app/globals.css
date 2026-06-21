@@ -4,6 +4,9 @@
   --color-brand-red: #3d030b;
   --color-brand-white: #f1eee7;
   --color-brand-black: #231f1f;
+  --color-brand-cream: #f9f7f6;
+  --color-brand-border: #ebe7e5;
+  --color-brand-charcoal: #272727;
 
   --font-sans: var(--font-google-sans);
   --font-serif: var(--font-playfair);

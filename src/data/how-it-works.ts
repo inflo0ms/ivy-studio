@@ -1,6 +1,6 @@
-import type { HowItWorksStep } from '@/components/sections/how-it-works/how-it-works-timeline';
+import type { ProcessStep } from '@/types/content';
 
-import heroImage from '@/assets/images/get-started.png';
+import heroImage from '@/assets/images/how-it-works.png';
 import dashboardImage from '@/assets/images/home-hero.png';
 
 export const howItWorksHero = {
@@ -32,4 +32,4 @@ export const howItWorksSteps = [
       'You will receive your edited images, completed Lightroom catalog, or project files. Review the result and send feedback if you want any final adjustments.',
     duration: '3-5 business days',
   },
-] satisfies [HowItWorksStep, HowItWorksStep, HowItWorksStep];
+] satisfies ProcessStep[];

@@ -3,22 +3,16 @@ import type { ReactNode } from 'react';
 import { Container } from '@/components/shared/container';
 import { SectionTitle } from '@/components/shared/section-heading';
 import { ClockIcon } from '@/components/ui/icons';
-
-export interface ProcessItem {
-  step: string;
-  title: string;
-  description: string;
-  duration: string;
-}
+import type { ProcessStep } from '@/types/content';
 
 interface ProcessProps {
   title: ReactNode;
-  items: [ProcessItem, ProcessItem, ProcessItem];
+  items: ProcessStep[];
 }
 
 export function Process({ title, items }: ProcessProps) {
   return (
-    <section className="bg-[#F9F7F6] py-16 md:py-20">
+    <section className="bg-brand-cream py-16 md:py-20">
       <Container>
         <SectionTitle className="text-center md:text-left">
           {title}

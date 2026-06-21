@@ -3,26 +3,10 @@
 import { useState } from 'react';
 
 import { Container } from '@/components/shared/container';
-
-export interface FaqAccordionItem {
-  question: string;
-  answer: string;
-}
-
-export interface FaqAccordionGroup {
-  title: string;
-  items: [FaqAccordionItem, FaqAccordionItem, FaqAccordionItem];
-}
+import type { FaqGroup } from '@/types/content';
 
 interface FaqAccordionGroupsProps {
-  groups: [
-    FaqAccordionGroup,
-    FaqAccordionGroup,
-    FaqAccordionGroup,
-    FaqAccordionGroup,
-    FaqAccordionGroup,
-    FaqAccordionGroup,
-  ];
+  groups: FaqGroup[];
 }
 
 export function FaqAccordionGroups({ groups }: FaqAccordionGroupsProps) {
@@ -34,7 +18,7 @@ export function FaqAccordionGroups({ groups }: FaqAccordionGroupsProps) {
         <div className="flex flex-col gap-12">
           {groups.map((group) => (
             <section key={group.title}>
-              <h2 className="text-brand-black border-b border-[#EBE7E5] pb-5 font-sans text-2xl leading-[1.2] font-normal">
+              <h2 className="text-brand-black border-brand-border border-b pb-5 font-sans text-2xl leading-[1.2] font-normal">
                 {group.title}
               </h2>
 
@@ -46,7 +30,7 @@ export function FaqAccordionGroups({ groups }: FaqAccordionGroupsProps) {
                   const isOpen = openItem === itemId;
 
                   return (
-                    <div key={item.question} className="border border-[#EBE7E5]">
+                    <div key={item.question} className="border-brand-border border">
                       <button
                         type="button"
                         onClick={() => setOpenItem(isOpen ? '' : itemId)}

@@ -1,22 +1,14 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
 import { SectionTitle } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
-
-export interface ArticleItem {
-  id: string;
-  image: StaticImageData;
-  title: string;
-  description: string;
-  date: string;
-  readTime: string;
-}
+import type { ArticleSummary } from '@/types/content';
 
 interface RecentArticlesProps {
-  items: [ArticleItem, ArticleItem, ArticleItem];
+  items: ArticleSummary[];
   title?: ReactNode;
 }
 
