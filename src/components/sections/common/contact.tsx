@@ -20,12 +20,27 @@ export interface ContactInfo {
 
 interface ContactProps {
   image: StaticImageData;
-  title: ReactNode;
+  title?: ReactNode;
   description: string;
   contact: ContactInfo;
 }
 
-export function Contact({ image, title, description, contact }: ContactProps) {
+const contactTitle = (
+  <>
+    <em className="font-serif italic">Have questions?</em>
+    <br />
+    <span className="block font-sans text-[28px] leading-[1.3] font-normal tracking-[0.35px] md:text-[48px] md:leading-[48px]">
+      Send us a message
+    </span>
+  </>
+);
+
+export function Contact({
+  image,
+  title = contactTitle,
+  description,
+  contact,
+}: ContactProps) {
   return (
     <section className="bg-white">
       <BackgroundImage
@@ -37,7 +52,7 @@ export function Contact({ image, title, description, contact }: ContactProps) {
         <Container className="grid min-h-[620px] gap-10 py-16 md:grid-cols-[1fr_0.9fr] md:py-20">
           <div className="contents text-center text-white md:flex md:h-full md:max-w-[520px] md:flex-col md:justify-between md:text-left">
             <div className="order-1 md:order-none">
-              <SectionTitle tone="light" className="leading-[1.05]">
+              <SectionTitle tone="light" className="text-white">
                 {title}
               </SectionTitle>
               <SectionDescription

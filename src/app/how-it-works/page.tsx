@@ -30,13 +30,6 @@ export default function HowItWorksPage() {
 
       <Contact
         image={homeImages.contact}
-        title={
-          <>
-            <em className="font-serif italic">Have questions?</em>
-            <br />
-            Send us a message
-          </>
-        }
         description="Start with a free color test - no payment, no commitment. We'll edit 15 of your photos to show you exactly what to expect."
         contact={siteContact}
       />
