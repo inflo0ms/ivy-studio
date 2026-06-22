@@ -15,7 +15,7 @@ export function FaqAccordionGroups({ groups }: FaqAccordionGroupsProps) {
   return (
     <section className="bg-white py-14 md:py-20">
       <Container className="max-w-[1000px]">
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-16">
           {groups.map((group) => (
             <section key={group.title}>
               <h2 className="text-brand-black border-brand-border font-body border-b pb-5 text-[32px] leading-9 font-medium tracking-[0.4px]">
@@ -32,12 +32,12 @@ export function FaqAccordionGroups({ groups }: FaqAccordionGroupsProps) {
                   return (
                     <div
                       key={item.question}
-                      className="border-brand-border border"
+                      className="border-brand-border border px-8 py-6"
                     >
                       <button
                         type="button"
                         onClick={() => setOpenItem(isOpen ? '' : itemId)}
-                        className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left"
+                        className="flex w-full items-center justify-between gap-6 text-left"
                         aria-expanded={isOpen}
                       >
                         <span className="text-brand-black font-body text-2xl leading-7 font-normal tracking-[-0.44px]">
@@ -49,7 +49,7 @@ export function FaqAccordionGroups({ groups }: FaqAccordionGroupsProps) {
                       </button>
 
                       {isOpen && (
-                        <p className="text-brand-black/70 font-body px-5 pb-6 text-[17px] leading-[1.4] font-normal">
+                        <p className="text-brand-black/70 font-body mt-4 text-[17px] leading-[1.4] font-normal">
                           {item.answer}
                         </p>
                       )}
