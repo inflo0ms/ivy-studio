@@ -11,7 +11,7 @@ export function ArticleMeta({ date, readTime, className }: ArticleMetaProps) {
   return (
     <div
       className={cn(
-        'font-body text-brand-black/55 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] leading-none',
+        'font-body text-brand-black/55 flex flex-wrap items-center gap-x-4 gap-y-2 text-[14px] leading-5 font-normal tracking-[-0.15px]',
         className,
       )}
     >

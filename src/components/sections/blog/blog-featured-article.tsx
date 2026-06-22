@@ -14,7 +14,7 @@ export function BlogFeaturedArticle({ article }: BlogFeaturedArticleProps) {
   return (
     <section className="bg-white py-14 md:py-20">
       <Container>
-        <article className="grid overflow-hidden border border-brand-black/10 bg-white shadow-[0_8px_24px_rgba(35,31,31,0.04)] md:grid-cols-[0.95fr_1.2fr]">
+        <article className="grid overflow-hidden rounded-lg border border-brand-black/10 bg-white shadow-[0_8px_24px_rgba(35,31,31,0.04)] md:grid-cols-[0.95fr_1.2fr]">
           <div className="relative aspect-[430/360] bg-brand-black/10 md:aspect-auto">
             <Image
               src={article.image}

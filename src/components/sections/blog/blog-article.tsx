@@ -1,19 +1,45 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { Fragment } from 'react';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
+import { ArticleShareButton } from '@/components/shared/article-share-button';
 import { Container } from '@/components/shared/container';
+import { ArrowIcon } from '@/components/ui/icons';
 import type { BlogArticleDetail } from '@/types/content';
 
 interface BlogArticleProps {
   article: BlogArticleDetail;
 }
 
+const articleHeadingClass =
+  'font-sans text-brand-black text-[36px] leading-[46.8px] font-medium tracking-normal';
+
+const articleParagraphClass =
+  'font-body text-brand-black/75 text-[19px] leading-[30.4px] font-normal tracking-normal';
+
+const galleryLabels = ['Before', 'After'] as const;
+
+const articleStepDescriptionClass =
+  'font-body text-brand-black/75 text-[17px] leading-[28.9px] font-normal tracking-normal';
+
+const mistakeTitleClass =
+  'font-body text-brand-black text-[17px] leading-[28.9px] font-bold tracking-normal';
+
 export function BlogArticle({ article }: BlogArticleProps) {
   return (
     <article className="bg-white py-14 md:py-20">
       <Container className="max-w-[860px]">
-        <div className="mb-8">
-          <p className="font-body text-brand-black/55 text-xs leading-none">
+        <div className="mb-12 flex flex-col items-start">
+          <Link
+            href="/blog"
+            className="font-body text-brand-red mb-8 flex items-center gap-1.5 text-[14px] leading-5 font-normal tracking-normal transition-opacity hover:opacity-80"
+          >
+            <ArrowIcon direction="prev" className="size-3.5" />
+            Back to Blog
+          </Link>
+
+          <p className="font-body bg-brand-cream text-brand-red mb-6 inline-flex rounded-full px-4 py-1.5 text-xs leading-4 font-normal tracking-[0.6px] uppercase">
             Our insights
           </p>
 
@@ -21,17 +47,14 @@ export function BlogArticle({ article }: BlogArticleProps) {
             {article.title}
           </h1>
 
-          <div className="font-body text-brand-black/55 mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs leading-none">
-            <span>By {article.author}</span>
-            <ArticleMeta
-              date={article.date}
-              readTime={article.readTime}
-              className="contents"
-            />
+          <div className="mt-8 flex w-full flex-wrap items-center justify-between gap-x-5 gap-y-2">
+            <ArticleMeta date={article.date} readTime={article.readTime} />
+
+            <ArticleShareButton />
           </div>
         </div>
 
-        <div className="relative aspect-[760/430] overflow-hidden rounded-lg bg-brand-black/10">
+        <div className="bg-brand-black/10 relative aspect-[760/430] overflow-hidden rounded-lg">
           <Image
             src={article.image}
             alt={article.title}
@@ -41,121 +64,150 @@ export function BlogArticle({ article }: BlogArticleProps) {
           />
         </div>
 
-        <div className="font-body text-brand-black/75 mt-8 flex flex-col gap-5 text-sm leading-[1.65]">
+        <div className="mt-16 flex flex-col gap-8">
           {article.intro.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+            <p key={paragraph} className={articleParagraphClass}>
+              {paragraph}
+            </p>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-10">
+        <div className="mt-16 flex flex-col gap-16">
           {article.sections.slice(0, 2).map((section, index) => (
-            <section key={section.title}>
-              <h2 className="text-brand-black font-sans text-2xl leading-[1.2] font-normal">
-                {section.title}
-              </h2>
-              <div className="font-body text-brand-black/75 mt-4 flex flex-col gap-4 text-sm leading-[1.65]">
-                {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
+            <Fragment key={section.title}>
+              <section>
+                <h2 className={articleHeadingClass}>{section.title}</h2>
+
+                {index === 1 ? (
+                  <>
+                    <p className={`${articleParagraphClass} mt-6`}>
+                      {section.paragraphs[0]}
+                    </p>
+
+                    <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                      {article.gallery.map((image, imageIndex) => (
+                        <div
+                          key={`${article.id}-gallery-${imageIndex}`}
+                          className="bg-brand-black/10 relative aspect-[340/245] overflow-hidden rounded-lg"
+                        >
+                          <Image
+                            src={image}
+                            alt={`${article.title} ${galleryLabels[imageIndex]} example`}
+                            fill
+                            sizes="(min-width: 640px) 50vw, 100vw"
+                            className="object-cover"
+                          />
+                          <span className="font-body absolute top-3 left-3 flex h-6 items-center rounded-full bg-[#444140] px-3 py-1 text-xs leading-4 font-normal tracking-normal text-white uppercase">
+                            {galleryLabels[imageIndex]}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {section.paragraphs.length > 1 && (
+                      <div className="mt-12 flex flex-col gap-6">
+                        {section.paragraphs.slice(1).map((paragraph) => (
+                          <p key={paragraph} className={articleParagraphClass}>
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="mt-6 flex flex-col gap-6">
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph} className={articleParagraphClass}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </section>
 
               {index === 0 && (
-                <blockquote className="border-brand-red bg-brand-cream mt-7 border-l-2 px-6 py-5">
-                  <p className="font-body text-brand-black text-sm leading-[1.55]">
+                <blockquote className="border-brand-red border-l-2 py-2 pr-0 pl-9">
+                  <p className="text-brand-black font-serif text-[24px] leading-9 font-normal tracking-normal italic">
                     &ldquo;{article.quote.text}&rdquo;
                   </p>
-                  <cite className="font-body text-brand-black/60 mt-3 block text-xs not-italic">
-                    {article.quote.author}
-                  </cite>
                 </blockquote>
               )}
-
-              {index === 1 && (
-                <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                  {article.gallery.map((image, imageIndex) => (
-                    <div
-                      key={`${article.id}-gallery-${imageIndex}`}
-                      className="relative aspect-[340/245] overflow-hidden rounded-lg bg-brand-black/10"
-                    >
-                      <Image
-                        src={image}
-                        alt={`${article.title} example ${imageIndex + 1}`}
-                        fill
-                        sizes="(min-width: 640px) 50vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
+            </Fragment>
           ))}
 
           <section>
-            <h2 className="text-brand-black font-sans text-2xl leading-[1.2] font-normal">
-              Step-by-Step Workflow
-            </h2>
-            <div className="mt-5 flex flex-col gap-6">
+            <h2 className={articleHeadingClass}>Step-by-Step Workflow</h2>
+            <div className="mt-10 flex flex-col gap-10">
               {article.workflow.map((step, index) => (
                 <div key={step.title}>
-                  <h3 className="text-brand-black font-sans text-base leading-[1.3] font-normal">
+                  <h3 className="text-brand-black font-sans text-[24px] leading-[33.6px] font-medium tracking-normal">
                     {index + 1}. {step.title}
                   </h3>
-                  <p className="font-body text-brand-black/75 mt-2 text-sm leading-[1.65]">
+                  <p className={`${articleStepDescriptionClass} mt-2`}>
                     {step.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="border-brand-red bg-brand-cream mt-7 border-l-2 px-6 py-5">
-              <p className="font-body text-brand-black text-sm leading-[1.55]">
-                Pro Tip: {article.proTip}
+            <div className="border-brand-red bg-brand-cream mt-12 flex flex-col gap-2 border-l-2 py-8 pr-8 pl-9">
+              <p className="text-brand-black font-sans text-[20px] leading-[30px] font-medium tracking-normal">
+                Pro Tip: {article.proTip.title}
+              </p>
+              <p className="font-body text-brand-black text-[17px] leading-[28.9px] font-normal tracking-normal">
+                {article.proTip.text}
               </p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-brand-black font-sans text-2xl leading-[1.2] font-normal">
-              Common Mistakes to Avoid
-            </h2>
-            <div className="font-body text-brand-black/75 mt-4 flex flex-col gap-3 text-sm leading-[1.65]">
+            <h2 className={articleHeadingClass}>Common Mistakes to Avoid</h2>
+            <p className={`${articleParagraphClass} mt-6`}>
+              {article.mistakesIntro}
+            </p>
+            <div className="mt-6 flex flex-col gap-6 pl-6">
               {article.mistakes.map((mistake) => (
-                <p key={mistake}>{mistake}</p>
+                <p key={mistake.title}>
+                  <span className={mistakeTitleClass}>{mistake.title}</span>
+                  <span className={articleStepDescriptionClass}>
+                    {' '}
+                    — {mistake.description}
+                  </span>
+                </p>
               ))}
             </div>
           </section>
 
           <section>
-            <h2 className="text-brand-black font-sans text-2xl leading-[1.2] font-normal">
-              When to Show Restraint
-            </h2>
-            <div className="font-body text-brand-black/75 mt-4 flex flex-col gap-4 text-sm leading-[1.65]">
+            <h2 className={articleHeadingClass}>When to Show Restraint</h2>
+            <div className="mt-6 flex flex-col gap-6">
               {article.restraint.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph} className={articleParagraphClass}>
+                  {paragraph}
+                </p>
               ))}
             </div>
           </section>
 
           <section>
-            <h2 className="text-brand-black font-sans text-2xl leading-[1.2] font-normal">
-              The Bottom Line
-            </h2>
-            <div className="font-body text-brand-black/75 mt-4 flex flex-col gap-4 text-sm leading-[1.65]">
+            <h2 className={articleHeadingClass}>The Bottom Line</h2>
+            <div className="mt-6 flex flex-col gap-6">
               {article.conclusion.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph} className={articleParagraphClass}>
+                  {paragraph}
+                </p>
               ))}
             </div>
           </section>
 
-          <footer className="border-brand-black/10 border-t pt-6">
-            <p className="font-body text-brand-black/55 text-xs leading-none">
+          <footer className="pt-6">
+            <p className="font-body text-brand-black/55 text-[14px] leading-5 font-normal tracking-normal">
               Written by
             </p>
-            <p className="font-body text-brand-black mt-2 text-sm leading-none">
+            <p className="text-brand-black mt-2 font-sans text-[20px] leading-[30px] font-normal tracking-normal">
               {article.author}
             </p>
-            <p className="font-body text-brand-black/65 mt-3 text-xs leading-[1.5]">
+            <p className="font-body text-brand-black/75 mt-4 text-[15px] leading-[22.5px] font-normal tracking-normal">
               {article.authorNote}
             </p>
           </footer>

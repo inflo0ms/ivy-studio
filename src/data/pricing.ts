@@ -4,10 +4,10 @@ import type {
   PricingItem,
 } from '@/types/content';
 
-import heroImage from '@/assets/images/pricing.png';
+import { pricingHero as pricingHeroImage } from '@/assets/images';
 
 export const pricingHero = {
-  image: heroImage,
+  image: pricingHeroImage,
   eyebrow: 'Services & Pricing',
   description:
     'No hidden fees. No surprise invoices. Pay per photo - or save with a wedding package. Every order starts with a free color test.',

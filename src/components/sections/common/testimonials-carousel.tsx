@@ -5,7 +5,10 @@ import Image from 'next/image';
 import { useCallback } from 'react';
 
 import { Container } from '@/components/shared/container';
-import { SectionEyebrow, SectionTitle } from '@/components/shared/section-heading';
+import {
+  SectionEyebrow,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 import { ArrowIcon } from '@/components/ui/icons';
 import type { TestimonialItem } from '@/types/content';
 
@@ -32,12 +35,10 @@ export function TestimonialsCarousel({ items }: TestimonialsCarouselProps) {
 
   return (
     <section className="bg-white py-16 md:py-20">
-      <Container className="mb-6">
+      <Container className="mb-10">
         <div className="flex items-end justify-between gap-6">
           <div className="w-full text-center md:w-auto md:text-left">
-            <SectionEyebrow>
-              Testimonials
-            </SectionEyebrow>
+            <SectionEyebrow>Testimonials</SectionEyebrow>
             <SectionTitle>
               What{' '}
               <em className="font-serif lowercase italic">photographers</em> say
@@ -91,7 +92,7 @@ export function TestimonialsCarousel({ items }: TestimonialsCarouselProps) {
                   <p className="text-brand-black font-sans text-base leading-6 font-medium tracking-[-0.31px]">
                     {item.author}
                   </p>
-                  <p className="text-brand-black font-sans mt-2 text-sm leading-5 font-normal tracking-[-0.15px]">
+                  <p className="text-brand-black mt-2 font-sans text-sm leading-5 font-normal tracking-[-0.15px]">
                     {item.role}
                   </p>
                 </div>

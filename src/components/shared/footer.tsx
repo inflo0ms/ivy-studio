@@ -20,7 +20,7 @@ function IvyLogo() {
 export function Footer() {
   return (
     <footer className="bg-brand-red text-brand-white">
-      <Container className="py-14 text-center md:py-16 md:text-left">
+      <Container className="w-full px-4 pt-16 pb-[25px] text-center md:px-20 md:pt-20 md:text-left">
         <p className="mx-auto max-w-full font-sans text-3xl leading-[1.15] font-normal md:mx-0 md:max-w-[65%] md:text-[42px]">
           We don&apos;t use automated filters or presets -{' '}
           <em className="font-serif italic">

@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Image, { type StaticImageData } from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
+import compareArrows from '@/assets/icons/compare_arrows.svg';
 import { Container } from '@/components/shared/container';
 import {
   SectionDescription,
@@ -72,10 +73,10 @@ export function PortfolioCompare({ items }: PortfolioCompareProps) {
     <section className="border-brand-border bg-brand-cream border-t-2 py-16 md:py-20">
       <Container>
         <div className="text-center">
-          <SectionTitle>
+          <SectionTitle className="font-body text-center leading-10 tracking-[0.37px]">
             Drag to <em className="font-serif italic">compare</em>
           </SectionTitle>
-          <SectionDescription className="mt-2">
+          <SectionDescription className="mt-4 text-center">
             Interactive before/after slider - place your mouse here.
           </SectionDescription>
         </div>
@@ -161,7 +162,9 @@ function CompareSlide({
         className="object-cover"
         style={{
           objectPosition: item.beforePosition,
-          transform: item.beforeScale ? `scale(${item.beforeScale})` : undefined,
+          transform: item.beforeScale
+            ? `scale(${item.beforeScale})`
+            : undefined,
         }}
       />
       <div
@@ -177,15 +180,17 @@ function CompareSlide({
           className="object-cover"
           style={{
             objectPosition: item.afterPosition,
-            transform: item.afterScale ? `scale(${item.afterScale})` : undefined,
+            transform: item.afterScale
+              ? `scale(${item.afterScale})`
+              : undefined,
           }}
         />
       </div>
 
-      <span className="text-brand-red bg-brand-cream absolute top-1/2 left-[25px] flex h-6 w-[77px] -translate-y-1/2 items-center justify-center gap-2.5 rounded-[100px] px-4 py-1.5 font-body text-xs leading-4 font-normal tracking-normal uppercase">
+      <span className="text-brand-red bg-brand-cream font-body absolute top-1/2 left-[25px] flex h-6 w-[77px] -translate-y-1/2 items-center justify-center gap-2.5 rounded-[100px] px-4 py-1.5 text-xs leading-4 font-normal tracking-normal uppercase">
         Before
       </span>
-      <span className="text-brand-red bg-brand-cream absolute top-1/2 right-[25px] flex h-6 w-[77px] -translate-y-1/2 items-center justify-center gap-2.5 rounded-[100px] px-4 py-1.5 font-body text-xs leading-4 font-normal tracking-normal uppercase">
+      <span className="text-brand-red bg-brand-cream font-body absolute top-1/2 right-[25px] flex h-6 w-[77px] -translate-y-1/2 items-center justify-center gap-2.5 rounded-[100px] px-4 py-1.5 text-xs leading-4 font-normal tracking-normal uppercase">
         After
       </span>
 
@@ -193,8 +198,8 @@ function CompareSlide({
         className="absolute inset-y-0 w-px bg-white"
         style={{ left: `${position}%` }}
       >
-        <span className="text-brand-black absolute top-1/2 left-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white font-sans text-sm shadow-[0_8px_24px_rgba(35,31,31,0.16)]">
-          &lt;&gt;
+        <span className="absolute top-1/2 left-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_8px_24px_rgba(35,31,31,0.16)]">
+          <Image src={compareArrows} alt="" width={20} height={9} aria-hidden />
         </span>
       </div>
 

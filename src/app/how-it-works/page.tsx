@@ -29,7 +29,7 @@ export default function HowItWorksPage() {
       <HowItWorksTimeline steps={howItWorksSteps} />
 
       <Contact
-        image={homeImages.readyCta}
+        image={homeImages.contact}
         title={
           <>
             <em className="font-serif italic">Have questions?</em>

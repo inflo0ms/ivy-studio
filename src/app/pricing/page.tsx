@@ -38,7 +38,7 @@ export default function PricingPage() {
       <PricingCalculator services={pricingCalculatorServices} />
 
       <Contact
-        image={homeImages.readyCta}
+        image={homeImages.contact}
         title={
           <>
             <em className="font-serif italic">Have questions?</em>

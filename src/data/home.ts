@@ -7,33 +7,35 @@ import type {
   WorkSlide,
 } from '@/types/content';
 
-import heroHomeImage from '@/assets/images/home-hero.png';
-import aboutLeftImage from '@/assets/images/introduce1.png';
-import aboutRightImage from '@/assets/images/introduce2.png';
-import service1Image from '@/assets/images/services/colorCorrection.png';
-import service2Image from '@/assets/images/services/culling.png';
-import service3Image from '@/assets/images/services/retouching.png';
-import readyCtaImage from '@/assets/images/form.png';
-
-import OurWorkImage from '@/assets/images/our-works/our-work1.jpg';
-import OurWorkImage2 from '@/assets/images/our-works/our-work2.png';
-import OurWorkImage3 from '@/assets/images/our-works/our-work3.jpg';
-import OurWorkImage4 from '@/assets/images/our-works/our-work4.png';
-
-import ArticleImage1 from '@/assets/images/articles/article1.png';
-import ArticleImage2 from '@/assets/images/articles/article2.png';
-import ArticleImage3 from '@/assets/images/articles/article3.jpg';
+import {
+  homeAboutLeft,
+  homeAboutRight,
+  homeArticle1,
+  homeArticle2,
+  homeArticle3,
+  contactImage,
+  readyCtaImage,
+  homeHero,
+  homeWork1,
+  homeWork2,
+  homeWork3,
+  homeWork4,
+  serviceColorCorrection,
+  serviceCulling,
+  serviceRetouching,
+} from '@/assets/images';
 
 export const homeImages = {
-  hero: heroHomeImage,
-  aboutLeft: aboutLeftImage,
-  aboutRight: aboutRightImage,
+  hero: homeHero,
+  aboutLeft: homeAboutLeft,
+  aboutRight: homeAboutRight,
   readyCta: readyCtaImage,
+  contact: contactImage,
 };
 
 export const homeServices = [
   {
-    image: service1Image,
+    image: serviceColorCorrection,
     title: 'Color Correction',
     description:
       'Perfect exposure, white balance, and tone adjustments to bring out the best in every shot. We work with RAW files and Lightroom catalogs.',
@@ -44,7 +46,7 @@ export const homeServices = [
     ],
   },
   {
-    image: service2Image,
+    image: serviceCulling,
     title: 'Culling',
     description:
       'Perfect exposure, white balance, and from the best-selected, and the adjustments to the balance. Light and cohesive.',
@@ -55,7 +57,7 @@ export const homeServices = [
     ],
   },
   {
-    image: service3Image,
+    image: serviceRetouching,
     title: 'Retouching',
     description:
       'Perfect exposure, white balance, and skin tones — bringing the true feeling of every shot to every shot in every shot in life.',
@@ -70,28 +72,28 @@ export const homeServices = [
 export const homeWorks = [
   {
     title: 'Lake Como wedding',
-    beforeImage: aboutLeftImage,
-    afterImage: OurWorkImage,
+    beforeImage: homeAboutLeft,
+    afterImage: homeWork1,
   },
   {
     title: 'Garden portrait',
-    beforeImage: heroHomeImage,
-    afterImage: OurWorkImage2,
+    beforeImage: homeHero,
+    afterImage: homeWork2,
   },
   {
     title: 'City ceremony',
-    beforeImage: service2Image,
-    afterImage: OurWorkImage3,
+    beforeImage: serviceCulling,
+    afterImage: homeWork3,
   },
   {
     title: 'Editorial details',
-    beforeImage: aboutRightImage,
-    afterImage: OurWorkImage4,
+    beforeImage: homeAboutRight,
+    afterImage: homeWork4,
   },
   {
     title: 'Reception story',
-    beforeImage: service3Image,
-    afterImage: OurWorkImage,
+    beforeImage: serviceRetouching,
+    afterImage: homeWork1,
   },
 ] satisfies WorkSlide[];
 
@@ -133,35 +135,35 @@ export const pricingItems = [
 
 export const homeTestimonials = [
   {
-    avatar: aboutLeftImage,
+    avatar: homeAboutLeft,
     quote:
       "I've used 3 other services and IVY is by far the best. They actually understand how to retouch skin naturally - no plastic look.",
     author: 'Marcus Chen',
     role: 'Fine art photographer, California',
   },
   {
-    avatar: heroHomeImage,
+    avatar: homeHero,
     quote:
       'The editing is consistent, subtle, and fast. My galleries feel like my work, only more polished and cohesive.',
     author: 'Elena Brooks',
     role: 'Wedding photographer, New York',
   },
   {
-    avatar: aboutRightImage,
+    avatar: homeAboutRight,
     quote:
       'They saved me hours every week and nailed the color direction from the first test gallery.',
     author: 'Sofia Martin',
     role: 'Destination photographer, Lisbon',
   },
   {
-    avatar: service2Image,
+    avatar: serviceCulling,
     quote:
       'Culling used to be my least favorite part of the job. Now I can send a full wedding and know the story will stay intact.',
     author: 'Noah Williams',
     role: 'Documentary photographer, Austin',
   },
   {
-    avatar: service3Image,
+    avatar: serviceRetouching,
     quote:
       'The retouching is clean without feeling overdone. Skin texture stays real, and my clients notice the difference.',
     author: 'Mia Carter',
@@ -196,7 +198,7 @@ export const homeProcess = [
 export const recentArticles = [
   {
     id: 'editing-authenticity-1',
-    image: ArticleImage1,
+    image: homeArticle1,
     title: 'Preserving Emotion: The Balance Between Editing and Authenticity',
     description:
       'Learn how to enhance skin tones while maintaining the authentic beauty and emotion of your wedding day portraits.',
@@ -205,7 +207,7 @@ export const recentArticles = [
   },
   {
     id: 'editing-authenticity-2',
-    image: ArticleImage2,
+    image: homeArticle2,
     title: 'Preserving Emotion: The Balance Between Editing and Authenticity',
     description:
       'Learn how to enhance skin tones while maintaining the authentic beauty and emotion of your wedding day portraits.',
@@ -214,7 +216,7 @@ export const recentArticles = [
   },
   {
     id: 'editing-authenticity-3',
-    image: ArticleImage3,
+    image: homeArticle3,
     title: 'Preserving Emotion: The Balance Between Editing and Authenticity',
     description:
       'Learn how to enhance skin tones while maintaining the authentic beauty and emotion of your wedding day portraits.',

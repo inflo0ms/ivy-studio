@@ -19,18 +19,26 @@ export interface BlogWorkflowStep {
   description: string;
 }
 
+export interface BlogMistakeItem {
+  title: string;
+  description: string;
+}
+
 export interface BlogArticleDetail extends ArticleSummary {
   author: string;
   intro: string[];
   sections: BlogArticleSection[];
   quote: {
     text: string;
-    author: string;
   };
   gallery: [StaticImageData, StaticImageData];
   workflow: BlogWorkflowStep[];
-  proTip: string;
-  mistakes: string[];
+  proTip: {
+    title: string;
+    text: string;
+  };
+  mistakesIntro: string;
+  mistakes: BlogMistakeItem[];
   restraint: string[];
   conclusion: string[];
   authorNote: string;

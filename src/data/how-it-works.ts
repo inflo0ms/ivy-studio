@@ -1,10 +1,9 @@
 import type { ProcessStep } from '@/types/content';
 
-import heroImage from '@/assets/images/how-it-works.png';
-import dashboardImage from '@/assets/images/home-hero.png';
+import { howItWorksDashboard, howItWorksHero as howItWorksHeroImage } from '@/assets/images';
 
 export const howItWorksHero = {
-  image: heroImage,
+  image: howItWorksHeroImage,
   description:
     'From creating your account to receiving finished galleries, our workflow keeps every order clear, simple, and easy to track.',
 };
@@ -16,7 +15,7 @@ export const howItWorksSteps = [
     description:
       'Simply click on the Create an Account button in the header of our website and you will be on our self-registration account creation form. Complete the required fields and you are all set.',
     duration: '5 minutes',
-    image: dashboardImage,
+    image: howItWorksDashboard,
   },
   {
     step: '02',

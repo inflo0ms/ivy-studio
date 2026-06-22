@@ -15,15 +15,15 @@ export function PortfolioSamples({ items }: PortfolioSamplesProps) {
   return (
     <section className="bg-white py-16 md:py-20">
       <Container>
-        <h2 className="text-center font-sans text-[28px] leading-[1.3] font-normal tracking-[0.35px] text-brand-black md:text-[32px]">
+        <h2 className="text-brand-black text-center font-sans text-[28px] leading-[1.3] font-normal tracking-[0.35px] md:text-[32px]">
           Check full gallery samples
         </h2>
 
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {items.map((item) => (
             <article
               key={item.title}
-              className="group relative h-[478px] overflow-hidden rounded-[5px] bg-brand-black/10"
+              className="group bg-brand-black/10 relative h-[478px] overflow-hidden rounded-[5px]"
             >
               <Image
                 src={item.image}
@@ -34,7 +34,7 @@ export function PortfolioSamples({ items }: PortfolioSamplesProps) {
               />
               <button
                 type="button"
-                className="absolute right-5 bottom-5 left-5 rounded-full bg-brand-red px-4 py-2 font-sans text-xs leading-none font-medium tracking-[-0.15px] text-white transition-colors hover:bg-brand-red/90 md:right-auto md:w-auto"
+                className="bg-brand-red hover:bg-brand-red/90 absolute right-5 bottom-5 left-5 rounded-full px-4 py-2 font-sans text-xs leading-none font-medium tracking-[-0.15px] text-white transition-colors md:right-auto md:w-auto"
               >
                 Open Gallery
               </button>

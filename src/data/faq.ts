@@ -1,9 +1,9 @@
 import type { FaqGroup } from '@/types/content';
 
-import heroImage from '@/assets/images/faq.jpg';
+import { faqHero as faqHeroImage } from '@/assets/images';
 
 export const faqHero = {
-  image: heroImage,
+  image: faqHeroImage,
   eyebrow: 'Questions & Answers',
   description:
     "Everything you need to know about our wedding photo retouching services. Can't find what you're looking for? Contact us directly.",

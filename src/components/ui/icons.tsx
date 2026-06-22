@@ -84,3 +84,26 @@ export function ArrowIcon({
     </svg>
   );
 }
+
+export function ShareIcon({ className }: IconProps) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+      className={cn('shrink-0', className)}
+    >
+      <circle cx="10.5" cy="2.5" r="1.5" stroke="currentColor" strokeWidth="1" />
+      <circle cx="3.5" cy="7" r="1.5" stroke="currentColor" strokeWidth="1" />
+      <circle cx="10.5" cy="11.5" r="1.5" stroke="currentColor" strokeWidth="1" />
+      <path
+        d="M4.8 6.2 9.2 3.3M4.8 7.8l4.4 2.9"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
