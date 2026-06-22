@@ -5,6 +5,7 @@ import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
 import { SectionTitle } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
+import { siteRoutes } from '@/data/site';
 import type { ArticleSummary } from '@/types/content';
 
 interface RecentArticlesProps {
@@ -29,7 +30,7 @@ export function RecentArticles({
           </SectionTitle>
 
           <Button
-            type="button"
+            href={siteRoutes.blog}
             variant="red"
             className="hidden rounded-full px-5 py-2.5 text-xs md:inline-flex"
           >
@@ -73,7 +74,7 @@ export function RecentArticles({
         </div>
 
         <Button
-          type="button"
+          href={siteRoutes.blog}
           variant="red"
           className="mt-8 w-full rounded-full px-5 py-3 text-xs md:hidden"
         >

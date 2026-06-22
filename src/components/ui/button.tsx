@@ -1,4 +1,9 @@
-import type { ButtonHTMLAttributes } from 'react';
+import Link from 'next/link';
+import type {
+  ButtonHTMLAttributes,
+  MouseEventHandler,
+  ReactNode,
+} from 'react';
 
 import { cn } from '@/lib/cn';
 
@@ -6,6 +11,8 @@ type ButtonVariant = 'white' | 'outline' | 'soft' | 'red';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
+  href?: string;
+  children?: ReactNode;
 }
 
 // Behavior only — sizing (padding, font size, radius) is set per usage via className
@@ -28,9 +35,29 @@ const variants: Record<ButtonVariant, string> = {
 export function Button({
   variant = 'white',
   className,
+  href,
+  children,
   ...props
 }: ButtonProps) {
+  const classes = cn(base, variants[variant], className);
+
+  if (href) {
+    const { onClick } = props;
+
+    return (
+      <Link
+        href={href}
+        className={classes}
+        onClick={onClick as MouseEventHandler<HTMLAnchorElement> | undefined}
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <button className={cn(base, variants[variant], className)} {...props} />
+    <button className={classes} {...props}>
+      {children}
+    </button>
   );
 }

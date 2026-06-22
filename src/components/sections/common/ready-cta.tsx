@@ -8,11 +8,13 @@ import {
   SectionTitle,
 } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
+import { siteRoutes } from '@/data/site';
 
 interface ReadyCtaProps {
   title: ReactNode;
   description: string;
   buttonLabel: string;
+  buttonHref?: string;
   image: StaticImageData;
 }
 
@@ -20,6 +22,7 @@ export function ReadyCta({
   title,
   description,
   buttonLabel,
+  buttonHref = siteRoutes.pricing,
   image,
 }: ReadyCtaProps) {
   return (
@@ -40,7 +43,11 @@ export function ReadyCta({
           >
             {description}
           </SectionDescription>
-          <Button variant="red" className="mt-8 rounded-full px-6 py-3 text-sm">
+          <Button
+            href={buttonHref}
+            variant="red"
+            className="mt-8 rounded-full px-6 py-3 text-sm"
+          >
             {buttonLabel}
           </Button>
         </Container>

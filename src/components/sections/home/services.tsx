@@ -2,8 +2,12 @@ import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 import { Container } from '@/components/shared/container';
-import { SectionEyebrow, SectionTitle } from '@/components/shared/section-heading';
+import {
+  SectionEyebrow,
+  SectionTitle,
+} from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
+import { siteRoutes } from '@/data/site';
 import type { ServiceItem } from '@/types/content';
 
 interface ServicesProps {
@@ -67,6 +71,7 @@ function ServiceRow({ item, reverse }: ServiceRowProps) {
         </ul>
 
         <Button
+          href={siteRoutes.portfolio}
           variant="soft"
           className="text-brand-red h-10 w-28 gap-2.5 rounded-[48px] border border-[#3D030B33] bg-white px-6 py-2 [font-family:Inter,var(--font-figtree),sans-serif] text-base leading-6 font-medium tracking-[-0.31px] hover:border-[#3D030B33] hover:bg-white"
         >
@@ -99,9 +104,7 @@ export function Services({
     <section className="bg-brand-cream py-20">
       {/* Section header */}
       <Container className="mb-16 text-center">
-        <SectionEyebrow>
-          {eyebrow}
-        </SectionEyebrow>
+        <SectionEyebrow>{eyebrow}</SectionEyebrow>
         <SectionTitle className="m-auto mt-4 max-w-[45%] leading-[1.2] tracking-normal">
           {title}
         </SectionTitle>

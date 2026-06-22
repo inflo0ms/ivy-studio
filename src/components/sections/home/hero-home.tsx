@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { BackgroundImage } from '@/components/shared/background-image';
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
+import { siteRoutes } from '@/data/site';
 
 interface HeroHomeProps {
   title: ReactNode;
@@ -29,10 +30,18 @@ export function HeroHome({ title, description, image }: HeroHomeProps) {
         <ArrowIcon className="text-brand-white hidden md:block" />
 
         <div className="flex flex-wrap items-center gap-4">
-          <Button variant="white" className="rounded-full px-7 py-3 text-sm">
+          <Button
+            href={siteRoutes.pricing}
+            variant="white"
+            className="rounded-full px-7 py-3 text-sm"
+          >
             Make an order
           </Button>
-          <Button variant="outline" className="rounded-full px-7 py-3 text-sm">
+          <Button
+            href={siteRoutes.pricing}
+            variant="outline"
+            className="rounded-full px-7 py-3 text-sm"
+          >
             View Pricing
           </Button>
         </div>

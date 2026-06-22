@@ -1,5 +1,6 @@
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
+import { siteRoutes } from '@/data/site';
 import { cn } from '@/lib/cn';
 import type { PricingItem } from '@/types/content';
 
@@ -78,7 +79,7 @@ export function PricingCards({ items }: PricingCardsProps) {
               </ul>
 
               <Button
-                type="button"
+                href={siteRoutes.howItWorks}
                 variant="red"
                 className="mt-10 h-12 w-full rounded-full text-sm md:mt-auto"
               >

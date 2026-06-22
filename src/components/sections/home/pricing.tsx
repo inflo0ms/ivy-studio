@@ -4,6 +4,7 @@ import {
   SectionTitle,
 } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
+import { siteRoutes } from '@/data/site';
 import type { PricingItem } from '@/types/content';
 
 interface PricingProps {
@@ -47,7 +48,7 @@ export function Pricing({ items }: PricingProps) {
           </div>
 
           <Button
-            type="button"
+            href={siteRoutes.pricing}
             variant="red"
             className="hidden rounded-full px-6 py-3 text-sm md:mt-2 md:inline-flex"
           >
@@ -95,7 +96,7 @@ export function Pricing({ items }: PricingProps) {
         </div>
 
         <Button
-          type="button"
+          href={siteRoutes.pricing}
           variant="red"
           className="mt-8 w-full rounded-full px-6 py-3 text-sm md:hidden"
         >

@@ -11,6 +11,7 @@ import {
 } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 import { ArrowIcon } from '@/components/ui/icons';
+import { siteRoutes } from '@/data/site';
 import type { WorkSlide } from '@/types/content';
 
 interface WorksCarouselProps {
@@ -97,7 +98,11 @@ export function WorksCarousel({ slides }: WorksCarouselProps) {
       </div>
 
       <Container className="mt-7 flex justify-center">
-        <Button variant="red" className="rounded-full px-6 py-3 text-sm">
+        <Button
+          href={siteRoutes.portfolio}
+          variant="red"
+          className="rounded-full px-6 py-3 text-sm"
+        >
           View full portfolio
         </Button>
       </Container>

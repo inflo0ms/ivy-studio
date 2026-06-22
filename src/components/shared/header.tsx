@@ -7,7 +7,7 @@ import { useState } from 'react';
 import logo from '@/assets/icons/logo/Logo.svg';
 import { Container } from '@/components/shared/container';
 import { Button } from '@/components/ui/button';
-import { primaryNavItems } from '@/data/site';
+import { primaryNavItems, siteRoutes } from '@/data/site';
 import { cn } from '@/lib/cn';
 
 export function Header() {
@@ -39,7 +39,11 @@ export function Header() {
             ))}
           </nav>
 
-          <Button variant="outline" className="rounded-full px-5 py-2 text-sm">
+          <Button
+            href={siteRoutes.pricing}
+            variant="outline"
+            className="rounded-full px-5 py-2 text-sm"
+          >
             Make an order
           </Button>
         </div>
@@ -76,8 +80,10 @@ export function Header() {
           ))}
 
           <Button
+            href={siteRoutes.pricing}
             variant="outline"
             className="mt-2 w-full rounded-full px-5 py-2.5 text-sm"
+            onClick={() => setIsOpen(false)}
           >
             Make an order
           </Button>
