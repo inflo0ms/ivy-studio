@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
@@ -30,7 +31,6 @@ interface BlogArticlesGridProps {
 
 export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
   const paginationRef = useRef<HTMLDivElement>(null);
-  const paginationViewportTop = useRef<number | null>(null);
   const totalPages = getTotalPages(items.length);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -39,49 +39,43 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
     [items, currentPage],
   );
 
-  const goToPage = useCallback((nextPage: number) => {
-    setCurrentPage((page) => {
-      if (page === nextPage) {
-        return page;
-      }
-
-      if (paginationRef.current) {
-        paginationViewportTop.current =
-          paginationRef.current.getBoundingClientRect().top;
-      }
-
-      return nextPage;
-    });
-  }, []);
-
-  useLayoutEffect(() => {
-    const targetViewportTop = paginationViewportTop.current;
-
-    if (targetViewportTop === null || !paginationRef.current) {
+  const goToPage = useCallback((nextPage: number, current: number) => {
+    if (current === nextPage) {
       return;
     }
 
-    paginationViewportTop.current = null;
+    const targetViewportTop =
+      paginationRef.current?.getBoundingClientRect().top;
 
-    const paginationTop =
-      paginationRef.current.getBoundingClientRect().top + window.scrollY;
+    flushSync(() => {
+      setCurrentPage(nextPage);
+    });
 
-    window.scrollTo(0, paginationTop - targetViewportTop);
-  }, [currentPage]);
+    if (targetViewportTop === undefined || !paginationRef.current) {
+      return;
+    }
+
+    const delta =
+      paginationRef.current.getBoundingClientRect().top - targetViewportTop;
+
+    if (Math.abs(delta) >= 0.5) {
+      window.scrollBy(0, delta);
+    }
+  }, []);
 
   const showPrevious = useCallback(() => {
-    goToPage(Math.max(0, currentPage - 1));
+    goToPage(Math.max(0, currentPage - 1), currentPage);
   }, [currentPage, goToPage]);
 
   const showNext = useCallback(() => {
-    goToPage(Math.min(totalPages - 1, currentPage + 1));
+    goToPage(Math.min(totalPages - 1, currentPage + 1), currentPage);
   }, [currentPage, goToPage, totalPages]);
 
   const showPage = useCallback(
     (index: number) => {
-      goToPage(index);
+      goToPage(index, currentPage);
     },
-    [goToPage],
+    [currentPage, goToPage],
   );
 
   const isFirstPage = currentPage === 0;
@@ -98,10 +92,10 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
           {visibleItems.map((item) => (
             <article
               key={item.id}
-              className="overflow-hidden rounded-lg border border-brand-black/10"
+              className="border-brand-black/10 overflow-hidden rounded-lg border"
             >
               <Link href={`/blog/${item.id}`} className="block h-full">
-                <div className="relative aspect-[352/254] bg-brand-black/10">
+                <div className="bg-brand-black/10 relative aspect-[352/254]">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -112,7 +106,7 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="font-body text-[24px] leading-[32px] font-medium tracking-[0.07px] text-brand-black">
+                  <h3 className="font-body text-brand-black text-[24px] leading-[32px] font-medium tracking-[0.07px]">
                     {item.title}
                   </h3>
                   <p className="font-body mt-3 text-[17px] leading-[1.4] font-normal tracking-normal text-[#231F1FCC]">
@@ -139,7 +133,7 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
               type="button"
               onClick={showPrevious}
               disabled={isFirstPage}
-              className="text-brand-black hover:border-brand-red hover:text-brand-red flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-black/10 disabled:hover:text-brand-black"
+              className="text-brand-black hover:border-brand-red hover:text-brand-red disabled:hover:text-brand-black flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-black/10"
               aria-label="Previous articles page"
             >
               <ArrowIcon direction="prev" />
@@ -165,7 +159,7 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
               type="button"
               onClick={showNext}
               disabled={isLastPage}
-              className="text-brand-black hover:border-brand-red hover:text-brand-red flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-black/10 disabled:hover:text-brand-black"
+              className="text-brand-black hover:border-brand-red hover:text-brand-red disabled:hover:text-brand-black flex size-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-black/10"
               aria-label="Next articles page"
             >
               <ArrowIcon direction="next" />
