@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
@@ -29,6 +29,8 @@ interface BlogArticlesGridProps {
 }
 
 export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
+  const paginationRef = useRef<HTMLDivElement>(null);
+  const paginationViewportTop = useRef<number | null>(null);
   const totalPages = getTotalPages(items.length);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -37,17 +39,50 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
     [items, currentPage],
   );
 
-  const showPrevious = useCallback(() => {
-    setCurrentPage((page) => Math.max(0, page - 1));
+  const goToPage = useCallback((nextPage: number) => {
+    setCurrentPage((page) => {
+      if (page === nextPage) {
+        return page;
+      }
+
+      if (paginationRef.current) {
+        paginationViewportTop.current =
+          paginationRef.current.getBoundingClientRect().top;
+      }
+
+      return nextPage;
+    });
   }, []);
+
+  useLayoutEffect(() => {
+    const targetViewportTop = paginationViewportTop.current;
+
+    if (targetViewportTop === null || !paginationRef.current) {
+      return;
+    }
+
+    paginationViewportTop.current = null;
+
+    const paginationTop =
+      paginationRef.current.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo(0, paginationTop - targetViewportTop);
+  }, [currentPage]);
+
+  const showPrevious = useCallback(() => {
+    goToPage(Math.max(0, currentPage - 1));
+  }, [currentPage, goToPage]);
 
   const showNext = useCallback(() => {
-    setCurrentPage((page) => Math.min(totalPages - 1, page + 1));
-  }, [totalPages]);
+    goToPage(Math.min(totalPages - 1, currentPage + 1));
+  }, [currentPage, goToPage, totalPages]);
 
-  const showPage = useCallback((index: number) => {
-    setCurrentPage(index);
-  }, []);
+  const showPage = useCallback(
+    (index: number) => {
+      goToPage(index);
+    },
+    [goToPage],
+  );
 
   const isFirstPage = currentPage === 0;
   const isLastPage = currentPage === totalPages - 1;
@@ -96,7 +131,10 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
         </div>
 
         {totalPages > 1 && (
-          <div className="mt-10 flex items-center justify-center gap-3">
+          <div
+            ref={paginationRef}
+            className="mt-10 flex items-center justify-center gap-3"
+          >
             <button
               type="button"
               onClick={showPrevious}
