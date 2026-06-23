@@ -66,7 +66,7 @@ export function Pricing({ items }: PricingProps) {
                 <h3 className="text-brand-black font-body mb-[15px] text-2xl leading-none font-medium tracking-normal">
                   {item.title}
                 </h3>
-                <p className="text-brand-black font-body mt-3 max-w-[240px] text-[17px] leading-[1.4] font-normal tracking-normal">
+                <p className="text-brand-black font-body mt-3 max-w-full text-[17px] leading-[1.4] font-normal tracking-normal md:max-w-[240px]">
                   {item.description}
                 </p>
               </div>

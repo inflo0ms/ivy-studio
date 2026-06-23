@@ -32,27 +32,29 @@ export function FaqAccordionGroups({ groups }: FaqAccordionGroupsProps) {
                   return (
                     <div
                       key={item.question}
-                      className="border-brand-border border px-8 py-6"
+                      className="border-brand-border border"
                     >
                       <button
                         type="button"
                         onClick={() => setOpenItem(isOpen ? '' : itemId)}
-                        className="flex w-full items-center justify-between gap-6 text-left"
+                        className="flex w-full flex-col px-8 py-6 text-left"
                         aria-expanded={isOpen}
                       >
-                        <span className="text-brand-black font-body text-2xl leading-7 font-normal tracking-[-0.44px]">
-                          {item.question}
+                        <span className="flex w-full items-center justify-between gap-6">
+                          <span className="text-brand-black font-body text-2xl leading-7 font-normal tracking-[-0.44px]">
+                            {item.question}
+                          </span>
+                          <span className="text-brand-black font-body shrink-0 text-xl leading-none">
+                            {isOpen ? '-' : '+'}
+                          </span>
                         </span>
-                        <span className="text-brand-black font-body text-xl leading-none">
-                          {isOpen ? '-' : '+'}
-                        </span>
-                      </button>
 
-                      {isOpen && (
-                        <p className="text-brand-black/70 font-body mt-4 text-[17px] leading-[1.4] font-normal">
-                          {item.answer}
-                        </p>
-                      )}
+                        {isOpen && (
+                          <span className="text-brand-black/70 font-body mt-4 block text-[17px] leading-[1.4] font-normal">
+                            {item.answer}
+                          </span>
+                        )}
+                      </button>
                     </div>
                   );
                 })}

@@ -32,7 +32,7 @@ export function Process({ title, items }: ProcessProps) {
                 {item.title}
               </h3>
 
-              <p className="font-body text-brand-black/75 mt-4 max-w-[250px] text-sm leading-[1.35]">
+              <p className="font-body text-brand-black/75 mt-4 max-w-full text-sm leading-[1.35] md:max-w-[250px]">
                 {item.description}
               </p>
 

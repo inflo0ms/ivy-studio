@@ -50,11 +50,11 @@ function ServiceRow({ item, reverse }: ServiceRowProps) {
       {/* Text card */}
       <div className="bg-white px-5 py-16 md:px-[72px] md:pt-[72px] md:pb-[84px]">
         <div>
-          <h3 className="text-brand-black font-sans text-[32px] leading-8 font-medium tracking-[0.07px]">
+          <h3 className="text-brand-black max-w-full font-sans text-[32px] leading-8 font-medium tracking-[0.07px]">
             {item.title}
           </h3>
 
-          <p className="text-brand-black font-body mt-4 mb-[57px] max-w-[68%] text-[17px] leading-[1.4] font-normal tracking-normal">
+          <p className="text-brand-black font-body mt-4 mb-[57px] max-w-full text-[17px] leading-[1.4] font-normal tracking-normal md:max-w-[68%]">
             {item.description}
           </p>
         </div>
@@ -105,7 +105,7 @@ export function Services({
       {/* Section header */}
       <Container className="mb-16 text-center">
         <SectionEyebrow>{eyebrow}</SectionEyebrow>
-        <SectionTitle className="m-auto mt-4 max-w-[45%] leading-[1.2] tracking-normal">
+        <SectionTitle className="m-auto mt-4 max-w-full leading-[1.2] tracking-normal md:max-w-[45%]">
           {title}
         </SectionTitle>
       </Container>

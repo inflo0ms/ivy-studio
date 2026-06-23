@@ -67,14 +67,14 @@ export function TestimonialsCarousel({ items }: TestimonialsCarouselProps) {
       </Container>
 
       <div ref={emblaRef} className="overflow-hidden">
-        <div className="-ml-2.5 flex touch-pan-y">
+        <div className="-ml-2.5 flex touch-pan-y items-stretch">
           {carouselItems.map((item, index) => (
             <div
               key={`${item.author}-${index}`}
-              className="min-w-0 flex-[0_0_86vw] pl-2.5 md:flex-[0_0_600px]"
+              className="flex min-w-0 flex-[0_0_86vw] pl-2.5 md:flex-[0_0_600px]"
             >
-              <article className="border-brand-border bg-brand-cream flex min-h-[288px] flex-col items-center justify-start rounded-lg border px-8 py-10 text-center md:h-[397px] md:p-[58px]">
-                <div className="bg-brand-black/10 relative size-16 overflow-hidden rounded-full md:size-[100px]">
+              <article className="border-brand-border bg-brand-cream flex h-[360px] w-full flex-col items-center rounded-lg border p-2.5 text-center sm:h-[380px] sm:px-8 sm:py-10 md:h-[397px] md:p-[58px]">
+                <div className="bg-brand-black/10 relative size-16 shrink-0 overflow-hidden rounded-full md:size-[100px]">
                   <Image
                     src={item.avatar}
                     alt={item.author}
@@ -84,11 +84,11 @@ export function TestimonialsCarousel({ items }: TestimonialsCarouselProps) {
                   />
                 </div>
 
-                <blockquote className="text-brand-black font-body mt-8 max-w-[360px] text-center text-[17px] leading-[1.4] font-normal tracking-normal md:flex md:h-[72px] md:max-w-[390px] md:items-center">
+                <blockquote className="text-brand-black font-body mt-8 flex max-w-full flex-1 items-center justify-center text-center text-[17px] leading-[1.4] font-normal tracking-normal md:max-w-[390px]">
                   &ldquo;{item.quote}&rdquo;
                 </blockquote>
 
-                <div className="mt-7 md:mt-5">
+                <div className="mt-7 w-full shrink-0 md:mt-5">
                   <p className="text-brand-black font-sans text-base leading-6 font-medium tracking-[-0.31px]">
                     {item.author}
                   </p>

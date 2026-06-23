@@ -20,7 +20,7 @@ function IvyLogo() {
 export function Footer() {
   return (
     <footer className="bg-brand-red text-brand-white">
-      <Container className="w-full px-4 pt-16 pb-[25px] text-center md:px-20 md:pt-20 md:text-left">
+      <Container className="pt-16 pb-[25px] text-center md:pt-20 md:text-left">
         <p className="mx-auto max-w-full font-sans text-3xl leading-[1.15] font-normal md:mx-0 md:max-w-[65%] md:text-[42px]">
           We don&apos;t use automated filters or presets -{' '}
           <em className="font-serif italic">
@@ -34,7 +34,7 @@ export function Footer() {
             <IvyLogo />
           </div>
 
-          <p className="font-body mx-auto max-w-[85%] text-xs leading-[1.45] text-white/75 md:mx-0 md:max-w-[200px]">
+          <p className="font-body mx-auto max-w-full text-xs leading-[1.45] text-white/75 md:mx-0 md:max-w-[200px]">
             Professional wedding photo retouching for photographers who care
             about quality.
           </p>

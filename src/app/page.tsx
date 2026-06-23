@@ -24,6 +24,7 @@ export default function HomePage() {
   return (
     <main>
       <HeroHome
+        fullViewport
         image={homeImages.hero}
         title={
           <>

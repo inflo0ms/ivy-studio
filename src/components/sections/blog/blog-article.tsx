@@ -43,7 +43,7 @@ export function BlogArticle({ article }: BlogArticleProps) {
             Our insights
           </p>
 
-          <h1 className="text-brand-black mt-5 max-w-2xl font-sans text-[32px] leading-[1.12] font-normal md:text-[48px]">
+          <h1 className="text-brand-black mt-5 max-w-full font-sans text-[32px] leading-[1.12] font-normal md:max-w-2xl md:text-[48px]">
             {article.title}
           </h1>
 

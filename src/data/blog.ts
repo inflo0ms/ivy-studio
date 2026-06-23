@@ -135,6 +135,60 @@ export const blogArticles = [
     date: 'March 8, 2026',
     readTime: '5 min read',
   },
+  {
+    id: 'emotion-editing-13',
+    image: serviceCulling,
+    title: 'Color Consistency Across an Entire Wedding Gallery',
+    description:
+      'How to keep tones cohesive from getting-ready portraits to the last dance without losing the mood of each moment.',
+    date: 'March 5, 2026',
+    readTime: '4 min read',
+  },
+  {
+    id: 'emotion-editing-14',
+    image: blogHeroImage,
+    title: 'Why Culling Matters Before Retouching Begins',
+    description:
+      'A tighter selection saves time, protects the story, and helps your final gallery feel intentional from the first image.',
+    date: 'March 3, 2026',
+    readTime: '5 min read',
+  },
+  {
+    id: 'emotion-editing-15',
+    image: homeAboutRight,
+    title: 'Editing for Mixed Lighting Without Flattening the Scene',
+    description:
+      'Practical ways to balance tungsten, daylight, and flash in reception photos while keeping depth and atmosphere.',
+    date: 'March 1, 2026',
+    readTime: '6 min read',
+  },
+  {
+    id: 'emotion-editing-16',
+    image: homeAboutLeft,
+    title: 'Delivering Faster Without Sacrificing Your Signature Look',
+    description:
+      'Build a repeatable workflow that keeps quality high when turnaround expectations keep getting tighter.',
+    date: 'February 27, 2026',
+    readTime: '5 min read',
+  },
+  {
+    id: 'emotion-editing-17',
+    image: serviceColorCorrection,
+    title: 'Skin Tone Harmony in Large Group Portraits',
+    description:
+      'Techniques for evening out complexions across families and wedding parties without making everyone look identical.',
+    date: 'February 24, 2026',
+    readTime: '4 min read',
+  },
+  {
+    id: 'emotion-editing-18',
+    image: serviceCulling,
+    title: 'Building Trust With Your First Test Gallery',
+    description:
+      'What to include in a sample edit, how to set expectations, and why the first delivery shapes long-term client relationships.',
+    date: 'February 21, 2026',
+    readTime: '5 min read',
+  },
 ] satisfies ArticleSummary[];
 
 export const blogRelatedArticles = [

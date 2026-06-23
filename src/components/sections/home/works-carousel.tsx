@@ -43,7 +43,7 @@ export function WorksCarousel({ slides }: WorksCarouselProps) {
             <SectionTitle className="tracking-[-0.15px]">
               Our <em className="font-serif italic">works</em>
             </SectionTitle>
-            <SectionDescription className="mx-auto mt-3 max-w-[80%] md:mx-0 md:max-w-none">
+            <SectionDescription className="mx-auto mt-3 max-w-full md:mx-0 md:max-w-none">
               Every pair shows a real wedding, hover to see RAW image.
             </SectionDescription>
           </div>

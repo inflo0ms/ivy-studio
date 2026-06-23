@@ -55,7 +55,7 @@ export function RecentArticles({
               </div>
 
               <div className="px-5 pt-5 pb-4">
-                <h3 className="text-brand-black font-sans text-lg leading-[1.2] font-normal md:text-[17px]">
+                <h3 className="text-brand-black font-body text-[24px] leading-8 font-medium tracking-[0.07px]">
                   {item.title}
                 </h3>
 

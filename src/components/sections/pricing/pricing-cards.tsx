@@ -52,7 +52,7 @@ export function PricingCards({ items }: PricingCardsProps) {
                 <h2 className="text-brand-black font-sans text-2xl leading-[1.2] font-normal md:text-[26px]">
                   {item.title}
                 </h2>
-                <p className="font-body text-brand-black/75 mt-3 max-w-[290px] text-sm leading-[1.4]">
+                <p className="font-body text-brand-black/75 mt-3 max-w-full text-sm leading-[1.4] md:max-w-[290px]">
                   {item.description}
                 </p>
               </div>

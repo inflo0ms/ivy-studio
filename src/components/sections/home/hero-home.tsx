@@ -10,14 +10,30 @@ interface HeroHomeProps {
   title: ReactNode;
   description: string;
   image?: StaticImageData;
+  fullViewport?: boolean;
 }
 
-export function HeroHome({ title, description, image }: HeroHomeProps) {
+export function HeroHome({
+  title,
+  description,
+  image,
+  fullViewport = false,
+}: HeroHomeProps) {
   return (
-    <BackgroundImage image={image} priority>
-      <Container className="flex min-h-[97vh] flex-col justify-between pt-28 pb-16">
+    <BackgroundImage
+      image={image}
+      priority
+      className={fullViewport ? 'flex min-h-dvh flex-col' : undefined}
+    >
+      <Container
+        className={
+          fullViewport
+            ? 'flex flex-1 flex-col justify-between pt-28 pb-8 sm:pb-12 md:pb-16'
+            : 'flex min-h-[97vh] flex-col justify-between pt-28 pb-16'
+        }
+      >
         <div className="max-w-3xl">
-          <h1 className="text-brand-white font-sans text-4xl leading-[1.2] font-normal sm:text-5xl lg:text-6xl">
+          <h1 className="text-brand-white font-sans text-[48px] leading-[1.2] font-normal sm:text-5xl lg:text-6xl">
             {title}
           </h1>
 

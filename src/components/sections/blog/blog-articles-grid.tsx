@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { ArticleMeta } from '@/components/shared/article-meta';
 import { Container } from '@/components/shared/container';
@@ -29,8 +29,6 @@ interface BlogArticlesGridProps {
 }
 
 export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-  const skipInitialScroll = useRef(true);
   const totalPages = getTotalPages(items.length);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -38,15 +36,6 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
     () => getVisibleItems(items, currentPage),
     [items, currentPage],
   );
-
-  useEffect(() => {
-    if (skipInitialScroll.current) {
-      skipInitialScroll.current = false;
-      return;
-    }
-
-    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [currentPage]);
 
   const showPrevious = useCallback(() => {
     setCurrentPage((page) => Math.max(0, page - 1));
@@ -64,7 +53,7 @@ export function BlogArticlesGrid({ items }: BlogArticlesGridProps) {
   const isLastPage = currentPage === totalPages - 1;
 
   return (
-    <section ref={sectionRef} className="bg-white py-14 md:py-20 scroll-mt-6">
+    <section className="bg-white py-14 md:py-20">
       <Container>
         <SectionTitle>
           Recent <em className="font-serif italic">articles</em>

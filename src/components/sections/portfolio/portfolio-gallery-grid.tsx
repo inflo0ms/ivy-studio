@@ -22,7 +22,7 @@ export function PortfolioGalleryGrid({ items }: PortfolioGalleryGridProps) {
   return (
     <section className="bg-white py-16 md:py-20">
       <Container>
-        <SectionTitle className="mx-auto max-w-2xl text-center">
+        <SectionTitle className="mx-auto max-w-full text-center md:max-w-2xl">
           Every image <em className="font-serif italic">is</em>{' '}
           <em className="font-serif italic">hand-edited</em>
           <br />

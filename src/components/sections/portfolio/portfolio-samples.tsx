@@ -1,6 +1,7 @@
 import Image, { type StaticImageData } from 'next/image';
 
 import { Container } from '@/components/shared/container';
+import { SectionTitle } from '@/components/shared/section-heading';
 
 interface PortfolioSampleGallery {
   image: StaticImageData;
@@ -15,9 +16,9 @@ export function PortfolioSamples({ items }: PortfolioSamplesProps) {
   return (
     <section className="bg-white py-16 md:py-20">
       <Container>
-        <h2 className="text-brand-black text-center font-sans text-[28px] leading-[1.3] font-normal tracking-[0.35px] md:text-[32px]">
+        <SectionTitle className="text-center">
           Check full gallery samples
-        </h2>
+        </SectionTitle>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {items.map((item) => (

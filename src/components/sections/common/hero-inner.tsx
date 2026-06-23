@@ -39,7 +39,7 @@ export function HeroInner({
         <SectionTitle
           as="h1"
           tone="light"
-          className="mt-5 max-w-4xl leading-[1.12]"
+          className="mt-5 max-w-4xl text-[48px] leading-[1.12] md:text-[60px]"
         >
           {title}
         </SectionTitle>

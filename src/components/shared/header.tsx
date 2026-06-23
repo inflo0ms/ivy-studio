@@ -15,7 +15,8 @@ export function Header() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-50 w-full">
-      <Container className="flex items-center justify-between py-5">
+      <div className="bg-brand-black/80 md:bg-transparent">
+        <Container className="flex items-center justify-between py-5">
         <Link
           href="/"
           className="inline-flex"
@@ -58,36 +59,37 @@ export function Header() {
         >
           {isOpen ? <CloseIcon /> : <BurgerIcon />}
         </button>
-      </Container>
-
-      {/* Mobile menu */}
-      <div
-        className={cn(
-          'bg-brand-black/80 overflow-hidden transition-all md:hidden',
-          isOpen ? 'max-h-96' : 'max-h-0',
-        )}
-      >
-        <Container as="nav" className="flex flex-col gap-4 pb-6">
-          {primaryNavItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="text-brand-white text-base transition-opacity hover:opacity-70"
-            >
-              {item.label}
-            </Link>
-          ))}
-
-          <Button
-            href={siteRoutes.pricing}
-            variant="outline"
-            className="mt-2 w-full rounded-full px-5 py-2.5 text-sm"
-            onClick={() => setIsOpen(false)}
-          >
-            Make an order
-          </Button>
         </Container>
+
+        {/* Mobile menu */}
+        <div
+          className={cn(
+            'overflow-hidden transition-all md:hidden',
+            isOpen ? 'max-h-96' : 'max-h-0',
+          )}
+        >
+          <Container as="nav" className="flex flex-col gap-4 pb-6">
+            {primaryNavItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="text-brand-white text-base transition-opacity hover:opacity-70"
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            <Button
+              href={siteRoutes.pricing}
+              variant="outline"
+              className="mt-2 w-full rounded-full px-5 py-2.5 text-sm"
+              onClick={() => setIsOpen(false)}
+            >
+              Make an order
+            </Button>
+          </Container>
+        </div>
       </div>
     </header>
   );

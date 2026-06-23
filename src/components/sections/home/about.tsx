@@ -47,7 +47,7 @@ export function About({
             {title}
           </SectionTitle>
 
-          <SectionDescription className="mx-auto mt-5 max-w-md">
+          <SectionDescription className="mx-auto mt-5 max-w-full md:max-w-md">
             {description}
           </SectionDescription>
         </div>

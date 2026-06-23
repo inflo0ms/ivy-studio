@@ -26,11 +26,11 @@ export function BlogFeaturedArticle({ article }: BlogFeaturedArticleProps) {
           </div>
 
           <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-12">
-            <h2 className="text-brand-black max-w-xl font-sans text-[28px] leading-[1.12] font-normal md:text-[42px]">
+            <h2 className="text-brand-black max-w-full font-sans text-[28px] leading-[1.3] font-normal tracking-[0.35px] md:max-w-xl md:text-[48px]">
               {article.title}
             </h2>
 
-            <p className="font-body text-brand-black/70 mt-5 max-w-md text-sm leading-[1.45]">
+            <p className="font-body text-brand-black/70 mt-5 max-w-full text-sm leading-[1.45] md:max-w-md">
               {article.description}
             </p>
 

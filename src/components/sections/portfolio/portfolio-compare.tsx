@@ -73,7 +73,7 @@ export function PortfolioCompare({ items }: PortfolioCompareProps) {
     <section className="border-brand-border bg-brand-cream border-t-2 py-16 md:py-20">
       <Container>
         <div className="text-center">
-          <SectionTitle className="font-body text-center leading-10 tracking-[0.37px]">
+          <SectionTitle className="font-body text-center tracking-[0.37px]">
             Drag to <em className="font-serif italic">compare</em>
           </SectionTitle>
           <SectionDescription className="mt-4 text-center">
